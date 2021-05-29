@@ -23,6 +23,9 @@ class MarsRover
         if ($command === 'L') {
             return '0:0:W';
         }
+        if ($command === 'LL') {
+            return '0:0:S';
+        }
 
         return '0:1:N';
     }
