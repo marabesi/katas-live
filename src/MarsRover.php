@@ -15,6 +15,11 @@ class MarsRover
         $iMax = strlen($command);
 
         for ($i=0; $i< $iMax; $i++){
+
+            if($this->facing === 'N' && $command[$i] === 'R'){
+                $this->facing = 'E';
+            }
+
             if ($command==='MM') {
                 return '0:2:N';
             }
@@ -30,7 +35,7 @@ class MarsRover
             }
 
             if (strpos($command, 'R') !== false) {
-                return sprintf('%d:%d:E', $this->x, $this->y);
+                return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
             }
 
             if ($command === 'L') {
