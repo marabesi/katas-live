@@ -9,56 +9,24 @@ use PHPUnit\Framework\TestCase;
 class MarsRoverTest extends TestCase
 {
 
-    public function test_should_place_rover_facing_north() {
-        $rover = new MarsRover();
-
-        $coords = $rover->execute('M');
-
-        $this->assertEquals($coords, '0:1:N');
+    public function inputs(): array {
+        return [
+            ['M', '0:1:N'],
+            ['R', '0:0:E'],
+            ['RR', '0:0:S'],
+            ['RRR', '0:0:W'],
+            ['L', '0:0:W'],
+        ];
     }
 
-    public function test_should_rover_facing_right()
-    {
+    /**
+     * @dataProvider inputs
+     */
+    public function test_move_rover_based_on_input($command, $expected) {
         $rover = new MarsRover();
 
-        $coords = $rover->execute('R');
+        $coords = $rover->execute($command);
 
-        $this->assertEquals($coords, '0:0:E');
-    }
-
-    public function test_should_rover_facing_south()
-    {
-        $rover = new MarsRover();
-
-        $coords = $rover->execute('RR');
-
-        $this->assertEquals($coords, '0:0:S');
-    }
-
-    public function test_should_face_west()
-    {
-        $rover = new MarsRover();
-
-        $coords = $rover->execute('RRR');
-
-        $this->assertEquals($coords, '0:0:W');
-    }
-
-    public function test_turn_rover_to_right()
-    {
-        $rover = new MarsRover();
-
-        $coords = $rover->execute('R');
-
-        $this->assertEquals($coords, '0:0:E');
-    }
-
-    public function test_turn_rover_to_left()
-    {
-        $rover = new MarsRover();
-
-        $coords = $rover->execute('L');
-
-        $this->assertEquals($coords, '0:0:W');
+        $this->assertEquals($coords, $expected);
     }
 }
