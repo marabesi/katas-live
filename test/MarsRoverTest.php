@@ -12,13 +12,14 @@ class MarsRoverTest extends TestCase
     public function inputs(): array {
         return [
             ['M', '0:1:N'],
+            ['MM', '0:2:N'],
             ['R', '0:0:E'],
             ['RR', '0:0:S'],
             ['RRR', '0:0:W'],
             ['L', '0:0:W'],
             ['LL', '0:0:S'],
             ['LLL', '0:0:E'],
-            ['MMRM', '1:2:E']
+            ['MMRM', '1:2:E'],
         ];
     }
 
