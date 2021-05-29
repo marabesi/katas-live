@@ -43,4 +43,13 @@ class MarsRoverTest extends TestCase
 
         $this->assertEquals($coords, '0:0:W');
     }
+
+    public function test_turn_rover_to_right()
+    {
+        $rover = new MarsRover();
+
+        $coords = $rover->execute('R');
+
+        $this->assertEquals($coords, '0:0:E');
+    }
 }
