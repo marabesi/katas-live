@@ -16,6 +16,15 @@ class MarsRover
 
         for ($i=0; $i< $iMax; $i++){
 
+            if($this->facing === 'E' && $command[$i] === 'R'){
+                $this->facing = 'S';
+            }
+            if($this->facing === 'S' && $command[$i] === 'R'){
+                $this->facing = 'W';
+            }
+            if($this->facing === 'W' && $command[$i] === 'R'){
+                $this->facing = 'N';
+            }
             if($this->facing === 'N' && $command[$i] === 'R'){
                 $this->facing = 'E';
             }
@@ -34,7 +43,7 @@ class MarsRover
                 return sprintf('%d:%d:S', $this->x, $this->y);
             }
 
-            if (strpos($command, 'R') !== false) {
+            if ($command=='R') {
                 return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
             }
 
