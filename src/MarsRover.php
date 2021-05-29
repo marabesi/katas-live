@@ -27,6 +27,10 @@ class MarsRover
             return '0:0:S';
         }
 
+        if ($command === 'LLL') {
+            return '0:0:E';
+        }
+
         return '0:1:N';
     }
 }
