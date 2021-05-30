@@ -5,6 +5,7 @@ namespace Kata;
 
 
 use Kata\Command\Left;
+use Kata\Command\Move;
 use Kata\Command\Right;
 
 class MarsRover
@@ -12,6 +13,36 @@ class MarsRover
     private string $facing = 'N';
     private int $x = 0;
     private int $y = 0;
+
+    public function getFacing(): string
+    {
+        return $this->facing;
+    }
+
+    public function setFacing(string $facing): void
+    {
+        $this->facing = $facing;
+    }
+
+    public function moveToNorth(): void
+    {
+        $this->y++;
+    }
+
+    public function moveToSouth(): void
+    {
+        $this->y--;
+    }
+
+    public function moveToEast(): void
+    {
+        $this->x++;
+    }
+
+    public function moveToWest(): void
+    {
+        $this->x--;
+    }
 
     public function execute(string $command)
     {
@@ -33,21 +64,9 @@ class MarsRover
             }
 
             if ($instruction === 'M') {
-                if($this->facing === 'N'){
-                    $this->y++;
-                }
-
-                if($this->facing === 'E'){
-                    $this->x++;
-                }
-
-                if($this->facing === 'W'){
-                    $this->x--;
-                }
-
-                if($this->facing === 'S'){
-                    $this->y--;
-                }
+                $move = new Move();
+                $move->setRover($this);
+                $move->execute($this->facing, $instruction);
 
                 if ($this->x < 0) {
                     $this->x = 9;
