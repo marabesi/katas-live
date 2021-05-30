@@ -4,6 +4,7 @@
 namespace Kata;
 
 
+use Kata\Command\Left;
 use Kata\Command\Right;
 
 class MarsRover
@@ -26,25 +27,9 @@ class MarsRover
             }
 
             if ($instruction === 'L') {
-                if ($this->facing === 'E') {
-                    $this->facing = 'N';
-                    continue;
-                }
-
-                if($this->facing === 'S'){
-                    $this->facing = 'E';
-                    continue;
-                }
-
-                if($this->facing === 'W'){
-                    $this->facing = 'S';
-                    continue;
-                }
-
-                if($this->facing === 'N'){
-                    $this->facing = 'W';
-                    continue;
-                }
+                $right = new Left();
+                $this->facing = $right->execute($this->facing, $instruction);
+                continue;
             }
 
             if ($instruction === 'M') {
