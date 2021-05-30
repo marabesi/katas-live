@@ -14,22 +14,19 @@ class MarsRover
     {
         $iMax = strlen($command);
 
-        for ($i=0; $i< $iMax; $i++){
+        for ($i=0; $i < $iMax; $i++){
 
             if ($command[$i] === 'R') {
                 if($this->facing === 'W'){
                     $this->facing = 'N';
                 }
-
-                if($this->facing === 'S'){
+                elseif($this->facing === 'S'){
                     $this->facing = 'W';
                 }
-
-                if($this->facing === 'E'){
+                elseif ($this->facing === 'E'){
                     $this->facing = 'S';
                 }
-
-                if($this->facing === 'N'){
+                else{
                     $this->facing = 'E';
                 }
             }

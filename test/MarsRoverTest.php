@@ -32,6 +32,6 @@ class MarsRoverTest extends TestCase
 
         $coords = $rover->execute($command);
 
-        $this->assertEquals($coords, $expected);
+        $this->assertEquals($expected,$coords);
     }
 }
