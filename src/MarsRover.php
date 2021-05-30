@@ -73,6 +73,10 @@ class MarsRover
                 if($this->facing === 'S'){
                     $this->y--;
                 }
+
+                if ($this->x < 0) {
+                    $this->x = 9;
+                }
             }
         }
 
