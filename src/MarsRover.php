@@ -48,19 +48,19 @@ class MarsRover
 
             if ($instruction === 'R') {
                 $right = new Right();
-                $this->facing = $right->execute($this->facing, $instruction);
+                $this->facing = $right->execute($this, $instruction);
                 continue;
             }
 
             if ($instruction === 'L') {
                 $right = new Left();
-                $this->facing = $right->execute($this->facing, $instruction);
+                $this->facing = $right->execute($this, $instruction);
                 continue;
             }
 
             if ($instruction === 'M') {
-                $move = new Move($this);
-                $move->execute($this->facing, $instruction);
+                $move = new Move();
+                $move->execute($this, $instruction);
 
                 if ($this->x < 0) {
                     $this->x = 9;

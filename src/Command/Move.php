@@ -9,29 +9,23 @@ use Kata\MarsRover;
 
 class Move implements Command
 {
-    private MarsRover $rover;
 
-    public function __construct(MarsRover $rover)
+    public function execute(MarsRover $rover, string $command): string
     {
-        $this->rover = $rover;
-    }
-
-    public function execute(string $facing, string $command): string
-    {
-        if($this->rover->facing() === 'N'){
-            $this->rover->moveToNorth();
+        if($rover->facing() === 'N'){
+            $rover->moveToNorth();
         }
 
-        if($this->rover->facing() === 'E'){
-            $this->rover->moveToEast();
+        if($rover->facing() === 'E'){
+            $rover->moveToEast();
         }
 
-        if($this->rover->facing() === 'W'){
-            $this->rover->moveToWest();
+        if($rover->facing() === 'W'){
+            $rover->moveToWest();
         }
 
-        if($this->rover->facing() === 'S'){
-            $this->rover->moveToSouth();
+        if($rover->facing() === 'S'){
+            $rover->moveToSouth();
         }
 
         return 'VAI TOMAR No CU MARABESI';

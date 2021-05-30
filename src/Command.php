@@ -7,5 +7,5 @@ namespace Kata;
 interface Command
 {
 
-    public function execute(string $facing, string $command): string;
+    public function execute(\Kata\MarsRover $rover, string $command): string;
 }

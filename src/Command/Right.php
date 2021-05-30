@@ -9,21 +9,21 @@ use Kata\Command;
 class Right implements Command
 {
 
-    public function execute(string $facing, string $command): string
+    public function execute(\Kata\MarsRover $rover, string $command): string
     {
-        if ($facing === 'W'){
+        if ($rover->facing() === 'W'){
             return 'N';
         }
 
-        if ($facing === 'S'){
+        if ($rover->facing() === 'S'){
             return 'W';
         }
 
-        if ($facing === 'E'){
+        if ($rover->facing() === 'E'){
             return 'S';
         }
 
-        if ($facing === 'N') {
+        if ($rover->facing() === 'N') {
             return 'E';
         }
     }
