@@ -32,6 +32,10 @@ class MarsRover
                 $this->facing = 'E';
             }
 
+            if($this->facing === 'S' && $command[$i] === 'L'){
+                $this->facing = 'E';
+            }
+
             if($this->facing === 'W' && $command[$i] === 'L'){
                 $this->facing = 'S';
             }
@@ -39,7 +43,6 @@ class MarsRover
             if($this->facing === 'N' && $command[$i] === 'L'){
                 $this->facing = 'W';
             }
-
         }
 
         if ($command==='MM') {
