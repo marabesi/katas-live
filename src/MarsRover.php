@@ -43,6 +43,10 @@ class MarsRover
             if($this->facing === 'N' && $command[$i] === 'L'){
                 $this->facing = 'W';
             }
+
+            if($this->facing === 'N' && $command[$i] === 'M'){
+                $this->y++;
+            }
         }
 
         if ($command==='MM') {
@@ -51,10 +55,6 @@ class MarsRover
 
         if ($command === 'MMRM') {
             return '1:2:E';
-        }
-
-        if ($command==='M') {
-            return '0:1:N';
         }
 
         return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
