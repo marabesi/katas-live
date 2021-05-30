@@ -11,7 +11,7 @@ class Move implements Command
 {
     private MarsRover $rover;
 
-    public function setRover(MarsRover $rover): void
+    public function __construct(MarsRover $rover)
     {
         $this->rover = $rover;
     }

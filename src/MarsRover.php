@@ -59,8 +59,7 @@ class MarsRover
             }
 
             if ($instruction === 'M') {
-                $move = new Move();
-                $move->setRover($this);
+                $move = new Move($this);
                 $move->execute($this->facing, $instruction);
 
                 if ($this->x < 0) {
