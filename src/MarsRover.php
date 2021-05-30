@@ -69,6 +69,10 @@ class MarsRover
                 if($this->facing === 'W'){
                     $this->x--;
                 }
+
+                if($this->facing === 'S'){
+                    $this->y--;
+                }
             }
         }
 
