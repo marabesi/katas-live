@@ -49,6 +49,10 @@ class MarsRover
             }
         }
 
+//        if ($command === 'MMRM') {
+//            return '1:2:E';
+//        }
+
         return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
     }
 
