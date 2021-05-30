@@ -34,18 +34,20 @@ class MarsRover
                 }
             }
 
-            if($this->facing === 'S' && $command[$i] === 'L'){
-                $this->facing = 'E';
-            }
+            if ($command[$i] === 'L') {
+                if($this->facing === 'S'){
+                    $this->facing = 'E';
+                }
 
-            if($this->facing === 'W' && $command[$i] === 'L'){
-                $this->facing = 'S';
-            }
+                if($this->facing === 'W'){
+                    $this->facing = 'S';
+                }
 
-            if($this->facing === 'N' && $command[$i] === 'L'){
-                $this->facing = 'W';
+                if($this->facing === 'N'){
+                    $this->facing = 'W';
+                }
             }
-
+        
             if($this->facing === 'N' && $command[$i] === 'M'){
                 $this->y++;
             }
