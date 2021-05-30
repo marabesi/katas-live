@@ -14,7 +14,7 @@ class MarsRover
     private int $x = 0;
     private int $y = 0;
 
-    public function getFacing(): string
+    public function facing(): string
     {
         return $this->facing;
     }
