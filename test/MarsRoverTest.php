@@ -23,6 +23,7 @@ class MarsRoverTest extends TestCase
             ['LLLL', '0:0:N'],
             ['MMRM', '1:2:E'],
             ['RMLLM', '0:0:W'],
+            ['MMRRMM', '0:0:S'],
         ];
     }
 
