@@ -19,11 +19,6 @@ class MarsRover
         return $this->facing;
     }
 
-    public function setFacing(string $facing): void
-    {
-        $this->facing = $facing;
-    }
-
     public function moveToNorth(): void
     {
         $this->y++;
