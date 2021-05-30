@@ -85,6 +85,10 @@ class MarsRover
                 if ($this->x > 9) {
                     $this->x = 0;
                 }
+
+                if ($this->y > 9) {
+                    $this->y = 0;
+                }
             }
         }
 
