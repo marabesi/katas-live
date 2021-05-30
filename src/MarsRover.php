@@ -42,18 +42,6 @@ class MarsRover
             return '1:2:E';
         }
 
-        if ($command === 'RRR') {
-            return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
-        }
-
-        if ($command=='RR') {
-            return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
-        }
-
-        if ($command=='R') {
-            return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
-        }
-
         if ($command === 'L') {
             return sprintf('%d:%d:W', $this->x, $this->y);
         }
@@ -65,7 +53,11 @@ class MarsRover
             return sprintf('%d:%d:E', $this->x, $this->y);
         }
 
-        return '0:1:N';
+        if ($command==='M') {
+            return '0:1:N';
+        }
+
+        return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
     }
 
 }
