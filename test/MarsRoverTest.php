@@ -33,6 +33,7 @@ class MarsRoverTest extends TestCase
             // acceptance
             ['MMRMMLM', '2:3:N'],
             ['MMMMMMMMMM', '0:0:N'],
+            ['RMMLM', '2:1:N'],
         ];
     }
 
