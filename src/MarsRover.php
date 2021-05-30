@@ -47,7 +47,7 @@ class MarsRover
         }
 
         if ($command === 'LL') {
-            return sprintf('%d:%d:S', $this->x, $this->y);
+            return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
         }
 
         if ($command === 'LLL') {
