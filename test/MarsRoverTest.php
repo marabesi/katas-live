@@ -27,6 +27,7 @@ class MarsRoverTest extends TestCase
             ['LM', '9:0:W'],
             ['RRM', '0:9:S'],
             ['LMLM', '9:9:S'],
+            ['LMRRM', '0:0:E'],
         ];
     }
 
