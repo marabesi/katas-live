@@ -16,6 +16,10 @@ class MarsRover
 
         for ($i=0; $i< $iMax; $i++){
 
+            if($this->facing === 'W' && $command[$i] === 'R'){
+                $this->facing = 'N';
+            }
+
             if($this->facing === 'S' && $command[$i] === 'R'){
                 $this->facing = 'W';
             }
@@ -24,13 +28,10 @@ class MarsRover
                 $this->facing = 'S';
             }
 
-            if($this->facing === 'W' && $command[$i] === 'R'){
-                $this->facing = 'N';
-            }
-
             if($this->facing === 'N' && $command[$i] === 'R'){
                 $this->facing = 'E';
             }
+
         }
 
         if ($command==='MM') {
@@ -42,7 +43,7 @@ class MarsRover
         }
 
         if ($command === 'RRR') {
-            return sprintf('%d:%d:W', $this->x, $this->y);
+            return sprintf('%d:%d:%s', $this->x, $this->y, $this->facing);
         }
 
         if ($command=='RR') {
