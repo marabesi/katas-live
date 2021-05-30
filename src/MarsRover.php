@@ -4,6 +4,8 @@
 namespace Kata;
 
 
+use Kata\Command\Right;
+
 class MarsRover
 {
     private string $facing = 'N';
@@ -15,27 +17,15 @@ class MarsRover
         $iMax = strlen($command);
 
         for ($i=0; $i < $iMax; $i++){
+            $instruction = $command[$i];
 
-            if ($command[$i] === 'R') {
-                if($this->facing === 'W'){
-                    $this->facing = 'N';
-                    continue;
-                }
-                if($this->facing === 'S'){
-                    $this->facing = 'W';
-                    continue;
-                }
-                if ($this->facing === 'E'){
-                    $this->facing = 'S';
-                    continue;
-                }
-                if ($this->facing === 'N') {
-                    $this->facing = 'E';
-                    continue;
-                }
+            if ($instruction === 'R') {
+                $right = new Right();
+                $this->facing = $right->execute($this->facing, $instruction);
+                continue;
             }
 
-            if ($command[$i] === 'L') {
+            if ($instruction === 'L') {
                 if ($this->facing === 'E') {
                     $this->facing = 'N';
                     continue;
@@ -57,7 +47,7 @@ class MarsRover
                 }
             }
 
-            if ($command[$i] === 'M') {
+            if ($instruction === 'M') {
                 if($this->facing === 'N'){
                     $this->y++;
                 }
