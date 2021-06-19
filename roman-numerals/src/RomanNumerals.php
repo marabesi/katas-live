@@ -6,8 +6,14 @@ class RomanNumerals
 {
 
     public function convert(int $amount): string {
+        if ($amount === 4) {
+            return 'IV';
+        }
         if ($amount === 5) {
             return 'V';
+        }
+        if ($amount === 9) {
+            return 'IX';
         }
         if ($amount === 10) {
             return 'X';
@@ -29,15 +35,11 @@ class RomanNumerals
 
         $i = '';
         while (
-            ( $currentAmount > 0 && $currentAmount < 5 ) ||
-            ( $currentAmount > 5 && $currentAmount < 10 )
+            ( $currentAmount > 0 && $currentAmount < 4 ) ||
+            ( $currentAmount > 5 && $currentAmount < 9 )
         ) {
             $i .= 'I';
             $currentAmount--;
-        }
-
-        if ($amount === 4) {
-            return 'IV';
         }
 
         if ($amount > 5) {
