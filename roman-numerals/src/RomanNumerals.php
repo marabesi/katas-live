@@ -6,12 +6,24 @@ class RomanNumerals
 {
 
     public function convert(int $amount): string {
-        if ($amount < 10) {
+
+        if($amount < 10){
             return $this->unitConverter($amount,'I','V','X');
         }
-        if ($amount >= 10 && $amount < 100) {
-            return $this->unitConverter($amount,'X','L','C',10);
+
+        if ($amount < 100) {
+            $romanNumeral = '';
+            $modDozens = $amount % 10;
+            $divDozens = (int) $amount / 10;
+            if ( $divDozens > 0 ) {
+                $romanNumeral .= $this->unitConverter($amount,'X','L','C',10);
+            }
+            if ( $modDozens > 0 ){
+                $romanNumeral .= $this->unitConverter($modDozens,'I','V','X');
+            }
+            return $romanNumeral;
         }
+
         if ($amount >= 100 && $amount <= 900) {
             return $this->unitConverter($amount,'C','D','M',100);
         }
