@@ -37,6 +37,9 @@ class RomanNumerals
         if ($amount === 60) {
             return 'LX';
         }
+        if ($amount === 70) {
+            return 'LXX';
+        }
     }
 
     private function unitConverter(int $amount) : string
