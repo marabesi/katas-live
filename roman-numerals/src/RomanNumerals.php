@@ -24,18 +24,15 @@ class RomanNumerals
         if ($amount === 1000) {
             return 'M';
         }
-        if ($amount === 2) {
-            return 'II';
-        }
-        if ($amount === 3) {
-            return 'III';
-        }
-        if ($amount === 4) {
-            return 'IIII';
-        }
         if ($amount === 6) {
             return 'VI';
         }
-        return 'I';
+        $i = '';
+        while ($amount > 0 && $amount < 5) {
+            $i .= 'I';
+            $amount--;
+        }
+
+        return $i;
     }
 }
