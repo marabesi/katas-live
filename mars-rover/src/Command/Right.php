@@ -5,11 +5,12 @@ namespace Kata\Command;
 
 
 use Kata\Command;
+use Kata\MarsRover;
 
 class Right implements Command
 {
 
-    public function execute(\Kata\MarsRover $rover, string $command): string
+    public function execute(MarsRover $rover, string $command): string
     {
         if ($rover->facing() === 'W'){
             return 'N';
