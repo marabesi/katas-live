@@ -6,14 +6,9 @@ class RomanNumerals
 {
 
     public function convert(int $amount): string {
-        if ($amount === 4) {
-            return 'IV';
-        }
-        if ($amount === 5) {
-            return 'V';
-        }
-        if ($amount === 9) {
-            return 'IX';
+
+        if ($amount < 10) {
+            return $this->unitConverter($amount);
         }
         if ($amount >= 10 && $amount <= 30) {
             return $this->repeatStringForm($amount, 10, 'X');
@@ -36,9 +31,21 @@ class RomanNumerals
         if ($amount === 1000) {
             return 'M';
         }
+    }
+
+    private function unitConverter(int $amount) : string
+    {
+        if ($amount === 4) {
+            return 'IV';
+        }
+        if ($amount === 5) {
+            return 'V';
+        }
+        if ($amount === 9) {
+            return 'IX';
+        }
 
         $currentAmount = $amount;
-
         $i = '';
         while (
             ( $currentAmount > 0 && $currentAmount < 4 ) ||
