@@ -9,7 +9,7 @@ class RomanNumerals
 
     public function convert(int $amount): string {
         if ($amount < 10) {
-            return $this->unitConverter($amount);
+            return $this->unitConverter($amount,'I','V','X');
         }
         if ($amount >= 10 && $amount < 100) {
             return $this->dozensConverter($amount);
@@ -47,26 +47,27 @@ class RomanNumerals
         return sprintf('L%s', $x);
     }
 
-    private function unitConverter(int $amount) : string
+    private function unitConverter(int $amount, string $symbol, string $midSymbol, string $postSymbol,  int $divider = 1) : string
     {
+        $amount = $amount / $divider;
         if ($amount >= 1 && $amount <= 3) {
-            return $this->repeatStringForm($amount, 1, 'I');
+            return $this->repeatStringForm($amount, 1, $symbol);
         }
         if ($amount === 4) {
-            return 'IV';
+            return $symbol.$midSymbol;
         }
         if ($amount === 9) {
-            return 'IX';
+            return $symbol.$postSymbol;
         }
 
         $i = '';
 
         while($amount >= 6 && $amount <= 8) {
-          $i .= 'I';
+          $i .= $symbol;
           $amount --;
         }
 
-        return sprintf('V%s', $i);
+        return sprintf('%s%s', $midSymbol, $i);
     }
 
     private function repeatStringForm(int $amount, int $module, string $stringToRepeat): string {
