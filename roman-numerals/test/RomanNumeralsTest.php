@@ -21,6 +21,7 @@ class RomanNumeralsTest extends TestCase
             [8, 'VIII'],
             [9, 'IX'],
             [10, 'X'],
+            [20, 'XX'],
             [100, 'C'],
             [500, 'D'],
             [1000, 'M'],
