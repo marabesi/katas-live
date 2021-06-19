@@ -37,12 +37,14 @@ class RomanNumerals
             return 'VIIII';
         }
 
+        $currentAmount = $amount;
+
         $i = 'I';
-        while ($amount > 1   ) {
+        while ($currentAmount > 1) {
             $i .= 'I';
-            $amount--;
+            $currentAmount--;
         }
 
-        return $i   ;
+        return $i;
     }
 }
