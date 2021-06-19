@@ -14,12 +14,10 @@ class RomanNumeralsTest extends TestCase
             [1, 'I'],
             [2, 'II'],
             [3, 'III'],
-            [4, 'IV'],
             [5, 'V'],
             [6, 'VI'],
             [7, 'VII'],
             [8, 'VIII'],
-            [9, 'IX'],
             [10, 'X'],
             [20, 'XX'],
             [30, 'XXX'],
@@ -27,7 +25,6 @@ class RomanNumeralsTest extends TestCase
             [50, 'L'],
             [60, 'LX'],
             [70, 'LXX'],
-            [80, 'LXXX'],
             [90, 'XC'],
             [100, 'C'],
             [200, 'CC'],
@@ -39,6 +36,10 @@ class RomanNumeralsTest extends TestCase
             [800, 'DCCC'],
             [900, 'CM'],
             [1000, 'M'],
+            // acceptance
+            [4, 'IV'],
+            [9, 'IX'],
+            [80, 'LXXX'],
         ];
     }
 
