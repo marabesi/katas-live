@@ -33,7 +33,6 @@ class RomanNumerals
         if ($amount === 40) {
             return 'XL';
         }
-
         if ($amount === 90) {
             return 'XC';
         }
@@ -50,31 +49,24 @@ class RomanNumerals
 
     private function unitConverter(int $amount) : string
     {
+        if ($amount >= 1 && $amount <= 3) {
+            return $this->repeatStringForm($amount, 1, 'I');
+        }
         if ($amount === 4) {
             return 'IV';
-        }
-        if ($amount === 5) {
-            return 'V';
         }
         if ($amount === 9) {
             return 'IX';
         }
 
-        $currentAmount = $amount;
         $i = '';
-        while (
-            ( $currentAmount > 0 && $currentAmount < 4 ) ||
-            ( $currentAmount > 5 && $currentAmount < 9 )
-        ) {
-            $i .= 'I';
-            $currentAmount--;
+
+        while($amount >= 6 && $amount <= 8) {
+          $i .= 'I';
+          $amount --;
         }
 
-        if ($amount > 5) {
-            return "V{$i}";
-        }
-
-        return $i;
+        return sprintf('V%s', $i);
     }
 
     private function repeatStringForm(int $amount, int $module, string $stringToRepeat): string {
