@@ -18,13 +18,14 @@ class RomanNumeralsTest extends TestCase
             [500, 'D'],
             [1000, 'M'],
             [2, 'II'],
+            [3, 'III'],
         ];
     }
 
     /**
      * @dataProvider data
      */
-    public function test_should_convert_decimal_to_roman_numeral(int $amount, string $romanNumber) {
+    public function test_should_convert_decimal_to_roman_numeral(int $amount, string $romanNumber): void {
         $romanNumberals = new RomanNumerals();
         $convertion = $romanNumberals->convert($amount);
         $this->assertEquals($romanNumber, $convertion);

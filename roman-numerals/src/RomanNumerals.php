@@ -24,6 +24,9 @@ class RomanNumerals
         if ($amount === 1000) {
             return 'M';
         }
+        if ($amount === 2) {
+            return 'II';
+        }
         return 'I';
     }
 }
