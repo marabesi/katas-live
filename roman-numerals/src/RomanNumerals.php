@@ -21,6 +21,9 @@ class RomanNumerals
         if ($amount === 500) {
             return 'D';
         }
+        if ($amount === 1000) {
+            return 'M';
+        }
         return 'I';
     }
 }
