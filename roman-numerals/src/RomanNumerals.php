@@ -40,6 +40,10 @@ class RomanNumerals
             return "V{$i}";
         }
 
+        if ($i === 'IIII') {
+            $i = 'IV';
+        }
+
         return $i;
     }
 }
