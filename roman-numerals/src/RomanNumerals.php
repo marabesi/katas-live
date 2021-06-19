@@ -33,6 +33,9 @@ class RomanNumerals
         if ($amount === 8) {
             return 'VIII';
         }
+        if ($amount === 9) {
+            return 'VIIII';
+        }
 
         $i = 'I';
         while ($amount > 1 && $amount < 5) {
