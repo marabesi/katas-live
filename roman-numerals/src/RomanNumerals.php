@@ -38,11 +38,11 @@ class RomanNumerals
         }
 
         $i = 'I';
-        while ($amount > 1 && $amount < 5) {
+        while ($amount > 1   ) {
             $i .= 'I';
             $amount--;
         }
 
-        return $i;
+        return $i   ;
     }
 }
