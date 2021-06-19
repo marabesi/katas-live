@@ -27,6 +27,10 @@ class RomanNumerals
 
         $currentAmount = $amount;
 
+        if ($currentAmount === 4) {
+            return 'IV';
+        }
+
         $i = '';
         while (
             ( $currentAmount > 0 && $currentAmount < 5 ) ||
@@ -40,9 +44,7 @@ class RomanNumerals
             return "V{$i}";
         }
 
-        if ($i === 'IIII') {
-            $i = 'IV';
-        }
+
 
         return $i;
     }
