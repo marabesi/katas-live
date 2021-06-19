@@ -33,20 +33,15 @@ class RomanNumerals
         if ($amount === 40) {
             return 'XL';
         }
-        if ($amount === 50) {
-            return 'L';
-        }
-        if ($amount === 60) {
-            return 'LX';
-        }
-        if ($amount === 70) {
-            return 'LXX';
-        }
-        if ($amount === 80) {
-            return 'LXXX';
+
+        $x = '';
+
+        while($amount >= 60 && $amount <= 80) {
+          $x .= 'X';
+          $amount -= 10;
         }
 
-        throw new InvalidArgumentException(sprintf('amount %d not supported', $amount));
+        return sprintf('L%s', $x);
     }
 
     private function unitConverter(int $amount) : string
