@@ -39,6 +39,7 @@ class RomanNumeralsTest extends TestCase
             // acceptance
             [4, 'IV'],
             [9, 'IX'],
+            [29, 'XXIX'],
             [80, 'LXXX'],
         ];
     }
