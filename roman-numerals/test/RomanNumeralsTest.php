@@ -21,6 +21,7 @@ class RomanNumeralsTest extends TestCase
             [3, 'III'],
             [4, 'IIII'],
             [6, 'VI'],
+            [7, 'VII'],
         ];
     }
 
