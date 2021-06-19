@@ -24,25 +24,20 @@ class RomanNumerals
         if ($amount === 1000) {
             return 'M';
         }
-        if ($amount === 6) {
-            return 'VI';
-        }
-        if ($amount === 7) {
-            return 'VII';
-        }
-        if ($amount === 8) {
-            return 'VIII';
-        }
-        if ($amount === 9) {
-            return 'VIIII';
-        }
 
         $currentAmount = $amount;
 
-        $i = 'I';
-        while ($currentAmount > 1) {
+        $i = '';
+        while (
+            ( $currentAmount > 0 && $currentAmount < 5 ) ||
+            ( $currentAmount > 5 && $currentAmount < 10 )
+        ) {
             $i .= 'I';
             $currentAmount--;
+        }
+
+        if ($amount > 5) {
+            return "V{$i}";
         }
 
         return $i;
