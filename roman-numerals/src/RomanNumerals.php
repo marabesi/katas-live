@@ -9,6 +9,9 @@ class RomanNumerals
         if ($amount === 5) {
             return 'V';
         }
+        if ($amount === 10) {
+            return 'X';
+        }
         return 'I';
     }
 }
