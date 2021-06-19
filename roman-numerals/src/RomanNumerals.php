@@ -6,10 +6,25 @@ class RomanNumerals
 {
 
     public function convert(int $amount): string {
-
         if ($amount < 10) {
             return $this->unitConverter($amount);
         }
+        if ($amount >= 10 && $amount < 100) {
+            return $this->dozensConverter($amount);
+        }
+        if ($amount === 100) {
+            return 'C';
+        }
+        if ($amount === 500) {
+            return 'D';
+        }
+        if ($amount === 1000) {
+            return 'M';
+        }
+    }
+
+    private function dozensConverter(int $amount) : string
+    {
         if ($amount >= 10 && $amount <= 30) {
             return $this->repeatStringForm($amount, 10, 'X');
         }
@@ -21,15 +36,6 @@ class RomanNumerals
         }
         if ($amount === 60) {
             return 'LX';
-        }
-        if ($amount === 100) {
-            return 'C';
-        }
-        if ($amount === 500) {
-            return 'D';
-        }
-        if ($amount === 1000) {
-            return 'M';
         }
     }
 
