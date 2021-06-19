@@ -24,6 +24,9 @@ class RomanNumerals
         if ($amount === 50) {
             return 'L';
         }
+        if ($amount === 60) {
+            return 'LX';
+        }
         if ($amount === 100) {
             return 'C';
         }
