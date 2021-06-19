@@ -34,6 +34,10 @@ class RomanNumerals
             return 'XL';
         }
 
+        if ($amount === 90) {
+            return 'XC';
+        }
+
         $x = '';
 
         while($amount >= 60 && $amount <= 80) {
