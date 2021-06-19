@@ -15,14 +15,8 @@ class RomanNumerals
         if ($amount === 9) {
             return 'IX';
         }
-        if ($amount === 10) {
-            return 'X';
-        }
-        if ($amount === 20) {
-            return 'XX';
-        }
-        if ($amount === 30) {
-            return 'XXX';
+        if ($amount >= 10 && $amount <= 30) {
+            return $this->repeatStringForm($amount, 10, 'X');
         }
         if ($amount === 40) {
             return 'XL';
@@ -56,5 +50,10 @@ class RomanNumerals
         }
 
         return $i;
+    }
+
+    private function repeatStringForm(int $amount, int $module, string $stringToRepeat): string {
+        $rest = floor($amount / $module);
+        return str_repeat($stringToRepeat, $rest);
     }
 }
