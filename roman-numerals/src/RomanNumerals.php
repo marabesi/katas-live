@@ -27,6 +27,9 @@ class RomanNumerals
         if ($amount === 2) {
             return 'II';
         }
+        if ($amount === 3) {
+            return 'III';
+        }
         return 'I';
     }
 }
