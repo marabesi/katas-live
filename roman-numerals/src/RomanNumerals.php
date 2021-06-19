@@ -12,7 +12,7 @@ class RomanNumerals
         if ($amount >= 10 && $amount < 100) {
             return $this->unitConverter($amount,'X','L','C',10);
         }
-        if ($amount >= 100 && $amount <= 200) {
+        if ($amount >= 100 && $amount <= 900) {
             return $this->unitConverter($amount,'C','D','M',100);
         }
         if ($amount === 500) {
