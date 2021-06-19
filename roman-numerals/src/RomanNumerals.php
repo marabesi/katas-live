@@ -12,7 +12,7 @@ class RomanNumerals
             return $this->unitConverter($amount,'I','V','X');
         }
         if ($amount >= 10 && $amount < 100) {
-            return $this->dozensConverter($amount);
+            return $this->unitConverter($amount,'X','L','C',10);
         }
         if ($amount === 100) {
             return 'C';
@@ -23,28 +23,6 @@ class RomanNumerals
         if ($amount === 1000) {
             return 'M';
         }
-    }
-
-    private function dozensConverter(int $amount) : string
-    {
-        if ($amount >= 10 && $amount <= 30) {
-            return $this->repeatStringForm($amount, 10, 'X');
-        }
-        if ($amount === 40) {
-            return 'XL';
-        }
-        if ($amount === 90) {
-            return 'XC';
-        }
-
-        $x = '';
-
-        while($amount >= 60 && $amount <= 80) {
-          $x .= 'X';
-          $amount -= 10;
-        }
-
-        return sprintf('L%s', $x);
     }
 
     private function unitConverter(int $amount, string $symbol, string $midSymbol, string $postSymbol,  int $divider = 1) : string
