@@ -2,8 +2,6 @@
 
 namespace Kata;
 
-use InvalidArgumentException;
-
 class RomanNumerals
 {
 
@@ -25,8 +23,13 @@ class RomanNumerals
         }
     }
 
-    private function unitConverter(int $amount, string $symbol, string $midSymbol, string $postSymbol,  int $divider = 1) : string
-    {
+    private function unitConverter(
+        int $amount,
+        string $symbol,
+        string $midSymbol,
+        string $postSymbol,
+        int $divider = 1
+    ) : string {
         $amount = $amount / $divider;
         if ($amount >= 1 && $amount <= 3) {
             return $this->repeatStringForm($amount, 1, $symbol);
