@@ -35,10 +35,10 @@ class RomanNumerals
             return $this->repeatStringForm($amount, 1, $symbol);
         }
         if ($amount === 4) {
-            return $symbol.$midSymbol;
+            return sprintf('%s%s', $symbol, $midSymbol);
         }
         if ($amount === 9) {
-            return $symbol.$postSymbol;
+            return sprintf('%s%s', $symbol, $postSymbol);
         }
 
         $i = '';
