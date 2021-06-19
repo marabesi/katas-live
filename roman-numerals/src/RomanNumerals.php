@@ -30,6 +30,9 @@ class RomanNumerals
         if ($amount === 3) {
             return 'III';
         }
+        if ($amount === 4) {
+            return 'IIII';
+        }
         return 'I';
     }
 }
