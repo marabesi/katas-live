@@ -2,6 +2,8 @@
 
 namespace Kata;
 
+use InvalidArgumentException;
+
 class RomanNumerals
 {
 
@@ -40,6 +42,11 @@ class RomanNumerals
         if ($amount === 70) {
             return 'LXX';
         }
+        if ($amount === 80) {
+            return 'LXXX';
+        }
+
+        throw new InvalidArgumentException(sprintf('amount %d not supported', $amount));
     }
 
     private function unitConverter(int $amount) : string
