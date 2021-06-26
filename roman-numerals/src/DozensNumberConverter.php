@@ -10,6 +10,7 @@ class DozensNumberConverter implements Convertable
 
     private int $isDivisibleBy = 0;
     private int $amount;
+    private int $divisor = 10;
 
     public function __construct(int $amount)
     {
@@ -20,10 +21,10 @@ class DozensNumberConverter implements Convertable
     {
         $romanNumeral = '';
 
-        $this->isDivisibleBy = $this->amount / 10;
+        $this->isDivisibleBy = $this->amount / $this->divisor;
 
         if ( $this->isDivisibleBy > 0 ) {
-            $romanNumeral .= $this->unitConverter($this->amount,'X','L','C',10);
+            $romanNumeral .= $this->unitConverter($this->amount,'X','L','C', $this->divisor);
         }
 
         return $romanNumeral;
@@ -31,6 +32,6 @@ class DozensNumberConverter implements Convertable
 
     public function divisionRest(): int
     {
-         return $this->amount % 10;
+         return $this->amount % $this->divisor;
     }
 }
