@@ -2,6 +2,8 @@
 
 namespace Kata;
 
+use InvalidArgumentException;
+
 class RomanNumerals
 {
 
@@ -14,16 +16,17 @@ class RomanNumerals
 
     public function convert(int $amount): string
     {
+        if ($amount >= 4000 || $amount <= 0) {
+            throw new InvalidArgumentException();
+        }
+
         $expectedResult = '';
-        if ($amount < 4000) {
-            foreach ($this->classes as $converter) {
-                $thousand = new $converter($amount);
+        foreach ($this->classes as $converter) {
+            $thousand = new $converter($amount);
 
-                $expectedResult .= $thousand->toRoman();
+            $expectedResult .= $thousand->toRoman();
 
-                $amount = $thousand->divisionRest();
-            }
-            return $expectedResult;
+            $amount = $thousand->divisionRest();
         }
         return $expectedResult;
     }

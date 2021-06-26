@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Kata\Test;
 
+use InvalidArgumentException;
 use Kata\RomanNumerals;
 use PHPUnit\Framework\TestCase;
 
@@ -54,5 +55,24 @@ class RomanNumeralsTest extends TestCase
         $romanNumberals = new RomanNumerals();
         $convertion = $romanNumberals->convert($amount);
         $this->assertEquals($romanNumber, $convertion);
+    }
+
+    public function invalidDataProvider()
+    {
+        return [
+            [4000],
+            [4001],
+            [-1],
+            [0],
+        ];
+    }
+
+    /**
+     * @dataProvider invalidDataProvider
+     */
+    public function test_error_when_greater_than_expected(int $amount) {
+        $this->expectException(InvalidArgumentException::class);
+        $romanNumberals = new RomanNumerals();
+        $romanNumberals->convert($amount);
     }
 }
