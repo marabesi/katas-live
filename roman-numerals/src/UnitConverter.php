@@ -13,7 +13,8 @@ trait UnitConverter
         string $postSymbol,
         int $divider = 1
     ) : string {
-        $amount = $amount / $divider;
+        $amount = (int) floor($amount / $divider);
+
         if ($amount >= 1 && $amount <= 3) {
             return $this->repeatStringForm($amount, 1, $symbol);
         }
@@ -30,7 +31,6 @@ trait UnitConverter
             $i .= $symbol;
             $amount --;
         }
-
         return sprintf('%s%s', $midSymbol, $i);
     }
 
