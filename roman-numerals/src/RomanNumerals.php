@@ -6,15 +6,18 @@ class RomanNumerals
 {
 
     public function convert(int $amount): string {
-
-        if($amount < 10){
-            $number = new UnitNumberConverter();
-            return $number->toRoman($amount);
-        }
+        $expectedResult = '';
 
         if ($amount < 100) {
             $dozens = new DozensNumberConverter();
-            return $dozens->toRoman($amount);
+            $expectedResult .= $dozens->toRoman($amount);
+
+            if ($dozens->mod > 0){
+                $number = new UnitNumberConverter();
+                $expectedResult .= $number->toRoman($dozens->mod);
+            }
+
+            return $expectedResult;
         }
 
         if ($amount === 294) {
