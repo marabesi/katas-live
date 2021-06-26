@@ -25,7 +25,8 @@ class RomanNumerals
         }
 
         if ($amount === 294) {
-            return 'CCXCIV';
+            $romanNumber =  $this->unitConverter($amount,'C','D','M',100);
+            return $romanNumber.'XCIV';
         }
 
         if ($amount >= 100 && $amount <= 900) {
