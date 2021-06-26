@@ -4,7 +4,7 @@ This is a repo to get started with TDD using the mars [rover kata](https://katal
 
 # References
 
-1. [TestDrivenDevelopment - martinfowler.com](https://martinfowler.com/bliki/TestDrivenDevelopment.html)\
+1. [TestDrivenDevelopment - martinfowler.com](https://martinfowler.com/bliki/TestDrivenDevelopment.html)
 
 # Authors
 
