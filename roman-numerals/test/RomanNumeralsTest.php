@@ -43,6 +43,7 @@ class RomanNumeralsTest extends TestCase
             [80, 'LXXX'],
             [294, 'CCXCIV'],
             [2019, 'MMXIX'],
+            [3999, 'MMMCMXCIX'],
         ];
     }
 
