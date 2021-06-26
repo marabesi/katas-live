@@ -6,5 +6,7 @@ namespace Kata;
 
 interface Convertable
 {
-    public function toRoman(int $number);
+    public function __construct(int $amount);
+    public function divisionRest(): int;
+    public function toRoman();
 }

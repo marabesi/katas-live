@@ -9,19 +9,30 @@ class DozensNumberConverter implements Convertable
     use UnitConverter;
 
     public int $mod = 0;
-    public int $isDivisibleBy = 0;
+    private int $isDivisibleBy = 0;
+    private int $amount;
 
-    public function toRoman(int $amount)
+    public function __construct(int $amount)
+    {
+        $this->amount = $amount;
+    }
+
+    public function toRoman()
     {
         $romanNumeral = '';
 
-        $this->mod = $amount % 10;
-        $this->isDivisibleBy = $amount / 10;
+        $this->mod = $this->amount % 10;
+        $this->isDivisibleBy = $this->amount / 10;
 
         if ( $this->isDivisibleBy > 0 ) {
-            $romanNumeral .= $this->unitConverter($amount,'X','L','C',10);
+            $romanNumeral .= $this->unitConverter($this->amount,'X','L','C',10);
         }
 
         return $romanNumeral;
+    }
+
+    public function divisionRest(): int
+    {
+         return $this->amount / 10;
     }
 }

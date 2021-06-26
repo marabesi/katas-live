@@ -9,12 +9,12 @@ class RomanNumerals
         $expectedResult = '';
 
         if ($amount < 100) {
-            $dozens = new DozensNumberConverter();
-            $expectedResult .= $dozens->toRoman($amount);
+            $dozens = new DozensNumberConverter($amount);
+            $expectedResult .= $dozens->toRoman();
 
             if ($dozens->mod > 0){
-                $number = new UnitNumberConverter();
-                $expectedResult .= $number->toRoman($dozens->mod);
+                $number = new UnitNumberConverter($dozens->mod);
+                $expectedResult .= $number->toRoman();
             }
 
             return $expectedResult;

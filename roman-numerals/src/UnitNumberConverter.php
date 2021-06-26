@@ -8,8 +8,20 @@ class UnitNumberConverter implements Convertable
 {
     use UnitConverter;
 
-    public function toRoman(int $number)
+    private int $amount;
+
+    public function __construct(int $amount)
     {
-        return $this->unitConverter($number, 'I', 'V', 'X');
+        $this->amount = $amount;
+    }
+
+    public function toRoman()
+    {
+        return $this->unitConverter($this->amount, 'I', 'V', 'X');
+    }
+
+    public function divisionRest(): int
+    {
+        return $this->amount % 10;
     }
 }
