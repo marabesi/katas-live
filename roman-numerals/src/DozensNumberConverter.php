@@ -8,7 +8,6 @@ class DozensNumberConverter implements Convertable
 {
     use UnitConverter;
 
-    private int $isDivisibleBy = 0;
     private int $amount;
     private int $divisor = 10;
 
@@ -21,9 +20,9 @@ class DozensNumberConverter implements Convertable
     {
         $romanNumeral = '';
 
-        $this->isDivisibleBy = $this->amount / $this->divisor;
+        $isDivisibleBy = $this->amount / $this->divisor;
 
-        if ( $this->isDivisibleBy > 0 ) {
+        if ( $isDivisibleBy > 0 ) {
             $romanNumeral .= $this->unitConverter($this->amount,'X','L','C', $this->divisor);
         }
 
