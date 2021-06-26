@@ -16,5 +16,8 @@
     },
     "scripts": {
         "test": "phpunit test/"
+    },
+    "require-dev": {
+        "nunomaduro/phpinsights": "^2.0"
     }
 }
