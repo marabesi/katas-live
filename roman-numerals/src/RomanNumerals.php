@@ -13,16 +13,8 @@ class RomanNumerals
         }
 
         if ($amount < 100) {
-            $romanNumeral = '';
-            $modDozens = $amount % 10;
-            $divDozens = $amount / 10;
-            if ( $divDozens > 0 ) {
-                $romanNumeral .= $this->unitConverter($amount,'X','L','C',10);
-            }
-            if ( $modDozens > 0 ){
-                $romanNumeral .= $this->unitConverter($modDozens,'I','V','X');
-            }
-            return $romanNumeral;
+            $dozens = new DozensNumberConverter();
+            return $dozens->toRoman($amount);
         }
 
         if ($amount === 294) {
