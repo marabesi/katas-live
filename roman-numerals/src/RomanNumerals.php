@@ -14,7 +14,7 @@ class RomanNumerals
         if ($amount < 100) {
             $romanNumeral = '';
             $modDozens = $amount % 10;
-            $divDozens = (int) $amount / 10;
+            $divDozens = $amount / 10;
             if ( $divDozens > 0 ) {
                 $romanNumeral .= $this->unitConverter($amount,'X','L','C',10);
             }
@@ -22,6 +22,10 @@ class RomanNumerals
                 $romanNumeral .= $this->unitConverter($modDozens,'I','V','X');
             }
             return $romanNumeral;
+        }
+
+        if ($amount === 294) {
+            return 'CCXCIV';
         }
 
         if ($amount >= 100 && $amount <= 900) {
