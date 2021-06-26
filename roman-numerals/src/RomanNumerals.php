@@ -12,8 +12,8 @@ class RomanNumerals
             $dozens = new DozensNumberConverter($amount);
             $expectedResult .= $dozens->toRoman();
 
-            if ($dozens->mod > 0){
-                $number = new UnitNumberConverter($dozens->mod);
+            if ($dozens->divisionRest() > 0){
+                $number = new UnitNumberConverter($dozens->divisionRest());
                 $expectedResult .= $number->toRoman();
             }
 
