@@ -8,7 +8,8 @@ class RomanNumerals
     public function convert(int $amount): string {
 
         if($amount < 10){
-            return $this->unitConverter($amount,'I','V','X');
+            $number = new UnitNumberConverter();
+            return $number->toRoman($amount);
         }
 
         if ($amount < 100) {
