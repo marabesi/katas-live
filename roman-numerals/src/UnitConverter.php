@@ -15,6 +15,10 @@ trait UnitConverter
     ) : string {
         $amount = (int) floor($amount / $divider);
 
+        if ($amount === 0) {
+            return '';
+        }
+
         if ($amount >= 1 && $amount <= 3) {
             return $this->repeatStringForm($amount, 1, $symbol);
         }

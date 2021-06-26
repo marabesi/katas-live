@@ -5,26 +5,26 @@ namespace Kata;
 class RomanNumerals
 {
 
+    private array $classes = [
+        ThousandNumberConverter::class,
+        HundredsNumberConverter::class,
+        DozensNumberConverter::class,
+        UnitNumberConverter::class,
+    ];
+
     public function convert(int $amount): string
     {
+        $expectedResult = '';
         if ($amount < 4000) {
-            $thousand = new ThousandNumberConverter($amount);
-            $expectedResult = $thousand->toRoman();
-            if ($thousand->divisionRest() < 1000) {
-                $hundreds = new HundredsNumberConverter($thousand->divisionRest());
-                $expectedResult .= $hundreds->toRoman();
+            foreach ($this->classes as $converter) {
+                $thousand = new $converter($amount);
 
-                if ($hundreds->divisionRest() < 100) {
-                    $dozens = new DozensNumberConverter($hundreds->divisionRest());
-                    $expectedResult .= $dozens->toRoman();
+                $expectedResult .= $thousand->toRoman();
 
-                    if ($dozens->divisionRest() > 0) {
-                        $number = new UnitNumberConverter($dozens->divisionRest());
-                        $expectedResult .= $number->toRoman();
-                    }
-                }
+                $amount = $thousand->divisionRest();
             }
             return $expectedResult;
         }
+        return $expectedResult;
     }
 }
