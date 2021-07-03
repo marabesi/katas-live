@@ -21,5 +21,9 @@ export class MoveRight {
       this.rover.facing = Compass.WEST
       return
     }
+    if (this.rover.facing === Compass.WEST) {
+      this.rover.facing = Compass.NORTH
+      return
+    }
   }
 }
