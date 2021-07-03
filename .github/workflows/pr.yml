@@ -12,5 +12,6 @@ jobs:
             - uses: shivammathur/setup-php@v2
               with:
                   php-version: 7.4
-            - run: cd roman-numerals && composer install --prefer-dist --no-progress --no-suggest
-            - run: cd roman-numerals && ./vendor/bin/phpinsights -n --ansi --format=github-action
+            - run: cd roman-numerals
+            - run: composer install --prefer-dist --no-progress --no-suggest
+            - run: ./vendor/bin/phpinsights -n --ansi --format=github-action
