@@ -52,6 +52,10 @@ export default class MarsRover {
       this.facing = Compass.WEST
       return
     }
+    if (this.facing === Compass.EAST) {
+      this.facing = Compass.NORTH
+      return
+    }
   }
 
   move() {
