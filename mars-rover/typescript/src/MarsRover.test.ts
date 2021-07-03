@@ -4,7 +4,8 @@ import { Grid } from './Grid'
 describe('Mars rover', () => {
   test.each(
     [
-      [{ command: 'M', expectedPosition: '0:1:N'}]
+      [{ command: 'M', expectedPosition: '0:1:N'}],
+      [{ command: 'L', expectedPosition: '0:0:W'}],
     ]
   )('move mars rover based on %s', ({ command, expectedPosition }) => {
     const rover = new MarsRover(new Grid(10, 10))
