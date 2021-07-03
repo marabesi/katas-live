@@ -15,6 +15,7 @@ describe('Mars rover', () => {
       [{ command: 'MRRM', expectedPosition: '0:0:S'}],
       [{ command: 'RMRRM', expectedPosition: '0:0:W'}],
       [{ command: 'RL', expectedPosition: '0:0:N'}],
+      [{ command: 'RRL', expectedPosition: '0:0:E'}],
       // acceptance, katalyst
       [{ command: 'MMRMMLM', expectedPosition: '2:3:N'}],
     ]
