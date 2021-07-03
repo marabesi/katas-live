@@ -3,55 +3,54 @@ import {Compass} from './Compass';
 
 export default class MarsRover {
   private grid: Grid
+  x: number = 0
+  y: number  = 0
+  facing: Compass = Compass.NORTH
 
   constructor(grid: Grid) {
     this.grid = grid
   }
   move(commands: string) {
-    let facing: Compass = Compass.NORTH
-    let x = 0
-    let y = 0
-
     for (let command of commands) {
       if (command === 'M') {
-        if (facing === Compass.NORTH) {
-          y++
+        if (this.facing === Compass.NORTH) {
+          this.y++
           continue
         }
-        if (facing === Compass.EAST) {
-          x++
+        if (this.facing === Compass.EAST) {
+          this.x++
           continue
         }
-        if (facing === Compass.SOUTH) {
-          y--
+        if (this.facing === Compass.SOUTH) {
+          this.y--
           continue
         }
       }
 
       if (command === 'L' ) {
-        if (facing === Compass.WEST) {
-          facing = Compass.SOUTH
+        if (this.facing === Compass.WEST) {
+          this.facing = Compass.SOUTH
           continue
         }
 
-        if (facing === Compass.NORTH) {
-          facing = Compass.WEST
+        if (this.facing === Compass.NORTH) {
+          this.facing = Compass.WEST
           continue
         }
       }
 
       if (command === 'R') {
-        if (facing === Compass.EAST) {
-          facing = Compass.SOUTH
+        if (this.facing === Compass.EAST) {
+          this.facing = Compass.SOUTH
           continue
         }
-        if (facing === Compass.NORTH) {
-          facing = Compass.EAST
+        if (this.facing === Compass.NORTH) {
+          this.facing = Compass.EAST
           continue
         }
       }
     }
 
-    return  `${x}:${y}:${facing}`
+    return  `${this.x}:${this.y}:${this.facing}`
   }
 }
