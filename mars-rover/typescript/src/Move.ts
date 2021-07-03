@@ -11,24 +11,17 @@ export class Move {
   move() {
     if (this.rover.facing === Compass.NORTH) {
       this.rover.y++
-      this.validate()
-      return
     }
     if (this.rover.facing === Compass.EAST) {
       this.rover.x++
-      this.validate()
-      return
     }
     if (this.rover.facing === Compass.SOUTH) {
       this.rover.y--
-      this.validate()
-      return
     }
     if (this.rover.facing === Compass.WEST) {
       this.rover.x--
-      this.validate()
-      return
     }
+    this.validate()
   }
 
   private validate() {
