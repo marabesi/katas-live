@@ -1,6 +1,7 @@
 import {Grid} from './Grid'
 import {Compass} from './Compass';
 import {Move} from "./Move";
+import {MoveRight} from "./MoveRight";
 
 export default class MarsRover {
   private grid: Grid
@@ -30,18 +31,7 @@ export default class MarsRover {
   }
 
   moveRight() {
-    if (this.facing === Compass.EAST) {
-      this.facing = Compass.SOUTH
-      return
-    }
-    if (this.facing === Compass.NORTH) {
-      this.facing = Compass.EAST
-      return
-    }
-    if (this.facing === Compass.SOUTH) {
-      this.facing = Compass.WEST
-      return
-    }
+    new MoveRight(this).move()
   }
 
   moveLeft() {
