@@ -29,6 +29,7 @@ describe('Mars rover', () => {
     const rover = new MarsRover(new Grid(10, 10))
     expect(rover.execute(command)).toEqual(expectedPosition)
   })
+
   test.each(
     [
       [{command: 'MMMMMMMMMM', expectedPosition: '0:10:N'}],
@@ -38,6 +39,15 @@ describe('Mars rover', () => {
     ]
   )('move mars rover based on %s', ({command, expectedPosition}) => {
     const rover = new MarsRover(new Grid(20, 20))
+    expect(rover.execute(command)).toEqual(expectedPosition)
+  })
+
+  test.each(
+    [
+      [{command: 'M', obstacle: { x: 0, y: 1 }, expectedPosition: 'O:0:0:N' }],
+    ]
+  )('mars rover with obstacle at %s based on %s', ({command, obstacle, expectedPosition}) => {
+    const rover = new MarsRover(new Grid(10, 10, obstacle))
     expect(rover.execute(command)).toEqual(expectedPosition)
   })
 })

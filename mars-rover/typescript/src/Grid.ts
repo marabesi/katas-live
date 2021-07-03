@@ -2,7 +2,7 @@ export class Grid {
   private _x: number
   private _y: number
 
-  constructor(x: number, y: number) {
+  constructor(x: number, y: number, obstacle?: { x: number; y: number }) {
     this._x = x
     this._y = y
   }
