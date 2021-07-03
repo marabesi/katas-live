@@ -21,18 +21,22 @@ export default class MarsRover {
       }
 
       if (command === 'R') {
-        if (this.facing === Compass.EAST) {
-          this.facing = Compass.SOUTH
-          continue
-        }
-        if (this.facing === Compass.NORTH) {
-          this.facing = Compass.EAST
-          continue
-        }
+        this.moveRight()
       }
     }
 
     return  `${this.x}:${this.y}:${this.facing}`
+  }
+
+  moveRight() {
+    if (this.facing === Compass.EAST) {
+      this.facing = Compass.SOUTH
+      return
+    }
+    if (this.facing === Compass.NORTH) {
+      this.facing = Compass.EAST
+      return
+    }
   }
 
   moveLeft() {
