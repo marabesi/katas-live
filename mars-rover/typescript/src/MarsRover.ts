@@ -19,6 +19,9 @@ export default class MarsRover {
       if(command === 'L' && facing === Compass.NORTH) {
         facing = Compass.WEST
       }
+      if(command === 'R' && facing === Compass.NORTH) {
+        facing = <Compass>"E"
+      }
     }
 
     return  `${x}:${y}:${facing}`
