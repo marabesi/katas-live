@@ -27,6 +27,7 @@ describe('Mars rover', () => {
     test.each(
         [
             [{ command: 'MMMMMMMMMM', expectedPosition: '0:10:N'}],
+            [{ command: 'MMMMMMMMMMMMMMMMMMMM', expectedPosition: '0:0:N'}],
         ]
     )('move mars rover based on %s', ({ command, expectedPosition }) => {
         const rover = new MarsRover(new Grid(20, 20))
