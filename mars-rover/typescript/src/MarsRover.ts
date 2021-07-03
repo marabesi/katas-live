@@ -17,15 +17,7 @@ export default class MarsRover {
       }
 
       if (command === 'L' ) {
-        if (this.facing === Compass.WEST) {
-          this.facing = Compass.SOUTH
-          continue
-        }
-
-        if (this.facing === Compass.NORTH) {
-          this.facing = Compass.WEST
-          continue
-        }
+        this.moveLeft()
       }
 
       if (command === 'R') {
@@ -41,6 +33,17 @@ export default class MarsRover {
     }
 
     return  `${this.x}:${this.y}:${this.facing}`
+  }
+
+  moveLeft() {
+    if (this.facing === Compass.WEST) {
+      this.facing = Compass.SOUTH
+      return
+    }
+    if (this.facing === Compass.NORTH) {
+      this.facing = Compass.WEST
+      return
+    }
   }
 
   move() {
