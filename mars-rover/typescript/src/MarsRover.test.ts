@@ -45,6 +45,8 @@ describe('Mars rover', () => {
   test.each(
     [
       [{command: 'M', obstacle: { x: 0, y: 1 }, expectedPosition: 'O:0:0:N' }],
+      [{command: 'MM', obstacle: { x: 0, y: 1 }, expectedPosition: 'O:0:0:N' }],
+      [{command: 'MRM', obstacle: { x: 1, y: 1 }, expectedPosition: 'O:0:1:E' }],
     ]
   )('mars rover with obstacle at %s based on %s', ({command, obstacle, expectedPosition}) => {
     const rover = new MarsRover(new Grid(10, 10, obstacle))
