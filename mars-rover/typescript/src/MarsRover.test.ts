@@ -1,4 +1,5 @@
-import MarsRover, { Grid } from './MarsRover'
+import MarsRover from './MarsRover'
+import { Grid } from './Grid'
 
 describe('Mars rover', () => {
   test.each(
