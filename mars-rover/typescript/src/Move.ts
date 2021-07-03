@@ -19,6 +19,7 @@ export class Move {
         }
         if (this.rover.facing === Compass.SOUTH) {
           this.rover.y--
+          this.validate()
           return
         }
         if (this.rover.facing === Compass.WEST) {
@@ -32,5 +33,10 @@ export class Move {
             this.rover.y = 0;
             return;
         }
+
+        if (this.rover.y < 0) {
+        this.rover.y = this.rover.grid.y - 1;
+        return;
+      }
     }
 }
