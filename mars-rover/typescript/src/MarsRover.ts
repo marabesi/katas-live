@@ -28,6 +28,7 @@ export default class MarsRover {
       }
     }
 
-    return `${this.hasObstacle ? 'O:' : ''}${this.x}:${this.y}:${this.facing}`
+    const obstacle = `${this.hasObstacle ? 'O:' : ''}`
+    return `${obstacle}${this.x}:${this.y}:${this.facing}`
   }
 }
