@@ -1,5 +1,5 @@
 import {Grid} from './Grid'
-import {Compass} from "./Compass";
+import {Compass} from './Compass';
 
 export default class MarsRover {
   private grid: Grid
@@ -8,7 +8,7 @@ export default class MarsRover {
     this.grid = grid
   }
   move(commands: string) {
-    let facing = Compass.NORTH
+    let facing: Compass = Compass.NORTH
     let x = 0
     let y = 0
 
@@ -16,8 +16,8 @@ export default class MarsRover {
       if (command === 'M' && facing === Compass.NORTH) {
         y++
       }
-      if(command === 'L' && facing === Compass.WEST) {
-        facing = <Compass>'S'
+      if (command === 'L' && facing === Compass.WEST) {
+        facing = Compass.SOUTH
       }
       if(command === 'L' && facing === Compass.NORTH) {
         facing = Compass.WEST
