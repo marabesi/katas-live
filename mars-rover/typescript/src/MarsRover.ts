@@ -15,6 +15,9 @@ export default class MarsRover {
       if (command === 'M' && facing === 'N') {
         y++
       }
+      if(command === 'L' && facing === 'N') {
+        facing = 'W'
+      }
     }
 
     return  `${x}:${y}:${facing}`
