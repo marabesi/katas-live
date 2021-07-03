@@ -14,7 +14,11 @@ export class Move {
     }
 
     const { x, y } = this.rover.grid.obstacle
-    return this.rover.grid.obstacle && x === roverX && y === roverY
+    if(this.rover.grid.obstacle && x === roverX && y === roverY) {
+      this.rover.hasObstacle = true
+      return true
+    }
+    return false
   }
 
   move() {
@@ -22,7 +26,6 @@ export class Move {
       const nextY = this.rover.y + 1
 
       if (this.isObstacle(this.rover.x, nextY)) {
-        this.rover.hasObstacle = true
         return
       }
 
@@ -32,7 +35,6 @@ export class Move {
       const nextX = this.rover.x + 1
 
       if (this.isObstacle(nextX, this.rover.y)) {
-        this.rover.hasObstacle = true
         return
       }
 
