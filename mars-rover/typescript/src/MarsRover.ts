@@ -10,21 +10,10 @@ export default class MarsRover {
   constructor(grid: Grid) {
     this.grid = grid
   }
-  move(commands: string) {
+  execute(commands: string) {
     for (let command of commands) {
       if (command === 'M') {
-        if (this.facing === Compass.NORTH) {
-          this.y++
-          continue
-        }
-        if (this.facing === Compass.EAST) {
-          this.x++
-          continue
-        }
-        if (this.facing === Compass.SOUTH) {
-          this.y--
-          continue
-        }
+        this.move()
       }
 
       if (command === 'L' ) {
@@ -52,5 +41,20 @@ export default class MarsRover {
     }
 
     return  `${this.x}:${this.y}:${this.facing}`
+  }
+
+  move() {
+    if (this.facing === Compass.NORTH) {
+      this.y++
+      return
+    }
+    if (this.facing === Compass.EAST) {
+      this.x++
+      return
+    }
+    if (this.facing === Compass.SOUTH) {
+      this.y--
+      return
+    }
   }
 }

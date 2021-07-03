@@ -16,6 +16,6 @@ describe('Mars rover', () => {
     ]
   )('move mars rover based on %s', ({ command, expectedPosition }) => {
     const rover = new MarsRover(new Grid(10, 10))
-    expect(rover.move(command)).toEqual(expectedPosition)
+    expect(rover.execute(command)).toEqual(expectedPosition)
   })
 })
