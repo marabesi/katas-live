@@ -5,7 +5,7 @@ import {MoveRight} from "./MoveRight";
 import {MoveLeft} from "./MoveLeft";
 
 export default class MarsRover {
-  private grid: Grid
+  grid: Grid
   x: number = 0
   y: number  = 0
   facing: Compass = Compass.NORTH

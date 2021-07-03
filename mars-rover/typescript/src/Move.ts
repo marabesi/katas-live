@@ -1,4 +1,3 @@
-import {Grid} from "./Grid";
 import MarsRover from "./MarsRover";
 import {Compass} from "./Compass";
 
@@ -29,7 +28,7 @@ export class Move {
     }
 
     private validate() {
-        if (this.rover.y >9) {
+        if (this.rover.y > this.rover.grid.y-1) {
             this.rover.y = 0;
             return;
         }
