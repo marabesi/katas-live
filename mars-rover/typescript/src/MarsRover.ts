@@ -9,6 +9,7 @@ export default class MarsRover {
   x: number = 0
   y: number = 0
   facing: Compass = Compass.NORTH
+  hasObstacle: boolean = false
 
   constructor(grid: Grid) {
     this.grid = grid
@@ -27,6 +28,6 @@ export default class MarsRover {
       }
     }
 
-    return `${this.x}:${this.y}:${this.facing}`
+    return `${this.hasObstacle ? 'O:' : ''}${this.x}:${this.y}:${this.facing}`
   }
 }

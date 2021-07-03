@@ -8,8 +8,23 @@ export class Move {
     this.rover = rover
   }
 
+  isObstacle(x: number, y: number) {
+    if (this.rover.grid.obstacle && this.rover.grid.obstacle.x === x && this.rover.grid.obstacle.y === y) {
+      return true
+    }
+
+    return false
+  }
+
   move() {
     if (this.rover.facing === Compass.NORTH) {
+      const nextY = this.rover.y + 1
+
+      if (this.isObstacle(this.rover.x, nextY)) {
+        this.rover.hasObstacle = true
+        return
+      }
+
       this.rover.y++
     }
     if (this.rover.facing === Compass.EAST) {
@@ -21,6 +36,7 @@ export class Move {
     if (this.rover.facing === Compass.WEST) {
       this.rover.x--
     }
+
     this.validate()
   }
 
