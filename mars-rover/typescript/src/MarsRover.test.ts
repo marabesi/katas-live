@@ -14,6 +14,7 @@ describe('Mars rover', () => {
       [{ command: 'MRM', expectedPosition: '1:1:E'}],
       [{ command: 'MRRM', expectedPosition: '0:0:S'}],
       [{ command: 'RMRRM', expectedPosition: '0:0:W'}],
+      [{ command: 'RL', expectedPosition: '0:0:N'}],
     ]
   )('move mars rover based on %s', ({ command, expectedPosition }) => {
     const rover = new MarsRover(new Grid(10, 10))
