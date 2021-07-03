@@ -9,21 +9,29 @@ export class Move {
     }
 
     move() {
-    if (this.rover.facing === Compass.NORTH) {
-      this.rover.y++
-      return
+        if (this.rover.facing === Compass.NORTH) {
+          this.rover.y++
+          this.validate()
+          return
+        }
+        if (this.rover.facing === Compass.EAST) {
+          this.rover.x++
+          return
+        }
+        if (this.rover.facing === Compass.SOUTH) {
+          this.rover.y--
+          return
+        }
+        if (this.rover.facing === Compass.WEST) {
+          this.rover.x--
+          return
+        }
     }
-    if (this.rover.facing === Compass.EAST) {
-      this.rover.x++
-      return
-    }
-    if (this.rover.facing === Compass.SOUTH) {
-      this.rover.y--
-      return
-    }
-    if (this.rover.facing === Compass.WEST) {
-      this.rover.x--
-      return
-    }
+
+    private validate() {
+        if (this.rover.y >9) {
+            this.rover.y = 0;
+            return;
+        }
     }
 }

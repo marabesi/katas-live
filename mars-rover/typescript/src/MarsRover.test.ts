@@ -18,6 +18,7 @@ describe('Mars rover', () => {
       [{ command: 'RRL', expectedPosition: '0:0:E'}],
       // acceptance, katalyst
       [{ command: 'MMRMMLM', expectedPosition: '2:3:N'}],
+      [{ command: 'MMMMMMMMMM', expectedPosition: '0:0:N'}],
     ]
   )('move mars rover based on %s', ({ command, expectedPosition }) => {
     const rover = new MarsRover(new Grid(10, 10))
