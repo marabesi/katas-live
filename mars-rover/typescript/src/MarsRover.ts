@@ -18,24 +18,14 @@ export default class MarsRover {
       if (command === 'M') {
         new Move(this).move()
       }
-
       if (command === 'L' ) {
-        this.moveLeft()
+        new MoveLeft(this).move()
       }
-
       if (command === 'R') {
-        this.moveRight()
+        new MoveRight(this).move()
       }
     }
 
     return  `${this.x}:${this.y}:${this.facing}`
-  }
-
-  moveRight() {
-    new MoveRight(this).move()
-  }
-
-  moveLeft() {
-    new MoveLeft(this).move()
   }
 }
