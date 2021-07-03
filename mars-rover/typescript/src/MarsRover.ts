@@ -13,17 +13,19 @@ export default class MarsRover {
     let y = 0
 
     for (let command of commands) {
-      if (command === 'M' && facing === Compass.NORTH) {
-        y++
-        continue
-      }
-      if (command === 'M' && facing === Compass.EAST) {
-        x++
-        continue
-      }
-      if (command === 'M' && facing === Compass.SOUTH) {
-        y--
-        continue
+      if (command === 'M') {
+        if (facing === Compass.NORTH) {
+          y++
+          continue
+        }
+        if (facing === Compass.EAST) {
+          x++
+          continue
+        }
+        if (facing === Compass.SOUTH) {
+          y--
+          continue
+        }
       }
 
       if (command === 'L' ) {
