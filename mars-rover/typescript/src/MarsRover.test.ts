@@ -48,6 +48,7 @@ describe('Mars rover', () => {
       [{command: 'MM', obstacle: { x: 0, y: 1 }, expectedPosition: 'O:0:0:N' }],
       [{command: 'MRM', obstacle: { x: 1, y: 1 }, expectedPosition: 'O:0:1:E' }],
       [{command: 'LM', obstacle: { x: 9, y: 0 }, expectedPosition: 'O:0:0:W' }],
+      [{command: 'MMMM', obstacle: { x: 0, y: 3 }, expectedPosition: 'O:0:2:N' }],
     ]
   )('mars rover with obstacle at %s based on %s', ({command, obstacle, expectedPosition}) => {
     const rover = new MarsRover(new Grid(10, 10, obstacle))
