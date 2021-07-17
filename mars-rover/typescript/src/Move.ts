@@ -39,7 +39,6 @@ export class Move {
     }
 
     const { x, y } = this.nextPosition(currentX, currentY)
-
     if (this.isObstacle(x, y)) {
       this.rover.hasObstacle = true
       return

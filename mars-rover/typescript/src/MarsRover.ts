@@ -1,8 +1,8 @@
-import { Grid } from './Grid'
-import { Compass } from './Compass';
-import { Move } from './Move';
-import { MoveRight } from './MoveRight';
-import { MoveLeft } from './MoveLeft';
+import {Grid} from './Grid'
+import {Compass} from './Compass';
+import {Move} from './Move';
+import {MoveRight} from './MoveRight';
+import {MoveLeft} from './MoveLeft';
 import {Command} from "./Command";
 import {Position} from "./Position";
 
@@ -26,6 +26,7 @@ export default class MarsRover {
 
   execute(commands: string) {
     for (let command of commands) {
+      this.validateCommand(command)
       if (command === Command.MOVE) {
         new Move(this).move()
       }
@@ -39,5 +40,15 @@ export default class MarsRover {
 
     const obstacle = `${this.hasObstacle ? 'O:' : ''}`
     return `${obstacle}${this._position.x}:${this._position.y}:${this.facing}`
+  }
+
+  validateCommand(command: string) {
+    const commands = [Command.MOVE, Command.LEFT, Command.RIGHT]
+    for (let commandIn of commands) {
+      if (commandIn === command) {
+        return
+      }
+    }
+    throw Error('invalid command')
   }
 }

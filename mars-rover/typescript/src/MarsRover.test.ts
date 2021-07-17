@@ -54,4 +54,15 @@ describe('Mars rover', () => {
     const rover = new MarsRover(new Grid(10, 10, obstacle))
     expect(rover.execute(command)).toEqual(expectedPosition)
   })
+
+  test.each(
+    [
+      [{command: 'A'}],
+    ]
+  )('mars rover with obstacle at %s based on %s', ({command}) => {
+    const rover = new MarsRover(new Grid(10, 10))
+    expect(() => {
+      rover.execute(command)
+    }).toThrow('invalid command')
+  })
 })
