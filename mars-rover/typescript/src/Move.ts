@@ -22,8 +22,8 @@ export class Move {
   }
 
   move() {
-    let currentX = this.rover.x
-    let currentY = this.rover.y
+    let currentX = this.rover.position.x
+    let currentY = this.rover.position.y
 
     if (this.rover.facing === Compass.NORTH) {
       currentY++
@@ -44,9 +44,7 @@ export class Move {
       this.rover.hasObstacle = true
       return
     }
-
-    this.rover.x = x
-    this.rover.y = y
+    this.rover.position  = new Position(x,y)
   }
 
   private nextPosition(x: number, y: number): Position {
