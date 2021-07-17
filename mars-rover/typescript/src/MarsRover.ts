@@ -3,6 +3,7 @@ import { Compass } from './Compass';
 import { Move } from './Move';
 import { MoveRight } from './MoveRight';
 import { MoveLeft } from './MoveLeft';
+import {Command} from "./Command";
 
 export default class MarsRover {
   grid: Grid
@@ -17,13 +18,13 @@ export default class MarsRover {
 
   execute(commands: string) {
     for (let command of commands) {
-      if (command === 'M') {
+      if (command === Command.MOVE) {
         new Move(this).move()
       }
-      if (command === 'L') {
+      if (command === Command.LEFT) {
         new MoveLeft(this).move()
       }
-      if (command === 'R') {
+      if (command === Command.RIGHT) {
         new MoveRight(this).move()
       }
     }
