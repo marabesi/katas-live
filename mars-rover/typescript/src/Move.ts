@@ -1,5 +1,6 @@
 import MarsRover from './MarsRover';
 import { Compass } from './Compass';
+import {Position} from "./Position";
 
 export class Move {
   private rover: MarsRover;
@@ -48,7 +49,7 @@ export class Move {
     this.rover.y = y
   }
 
-  private nextPosition(x: number, y: number): { x: number, y: number } {
+  private nextPosition(x: number, y: number): Position {
     if (y > this.rover.grid.y - 1) {
       y = 0;
     }
