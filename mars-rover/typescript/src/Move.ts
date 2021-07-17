@@ -22,53 +22,50 @@ export class Move {
   }
 
   move() {
+    let currentX = this.rover.x
+    let currentY = this.rover.y
+
     if (this.rover.facing === Compass.NORTH) {
-      const nextY = this.rover.y + 1
-
-      if (this.isObstacle(this.rover.x, nextY)) {
-        return
-      }
-
-      this.rover.y++
+      currentY++
     }
+
     if (this.rover.facing === Compass.EAST) {
-      const nextX = this.rover.x + 1
-
-      if (this.isObstacle(nextX, this.rover.y)) {
-        return
-      }
-
-      this.rover.x++
+      currentX++
     }
     if (this.rover.facing === Compass.SOUTH) {
-      this.rover.y--
+      currentY--
     }
     if (this.rover.facing === Compass.WEST) {
-      this.rover.x--
+      currentX--
     }
 
-    this.validate()
+    const { x, y } = this.validate(currentX, currentY)
+
+    if (this.isObstacle(x, y)) {
+      return
+    }
+
+    this.rover.x = x
+    this.rover.y = y
   }
 
-  private validate() {
-    if (this.rover.y > this.rover.grid.y - 1) {
-      this.rover.y = 0;
-      return;
+  private validate(x: number, y: number): { x: number, y: number } {
+    if (y > this.rover.grid.y - 1) {
+      y = 0;
     }
 
-    if (this.rover.y < 0) {
-      this.rover.y = this.rover.grid.y - 1;
-      return;
+    if (y < 0) {
+      y = this.rover.grid.y - 1;
     }
 
-    if (this.rover.x < 0) {
-      this.rover.x = this.rover.grid.x - 1;
-      return;
+    if (x < 0) {
+      x = this.rover.grid.x - 1;
     }
 
-    if (this.rover.x > this.rover.grid.x - 1) {
-      this.rover.x = 0;
-      return;
+    if (x > this.rover.grid.x - 1) {
+      x = 0;
     }
+
+    return { x, y }
   }
 }
