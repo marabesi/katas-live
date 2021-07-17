@@ -28,7 +28,6 @@ export class Move {
     if (this.rover.facing === Compass.NORTH) {
       currentY++
     }
-
     if (this.rover.facing === Compass.EAST) {
       currentX++
     }
@@ -39,7 +38,7 @@ export class Move {
       currentX--
     }
 
-    const { x, y } = this.validate(currentX, currentY)
+    const { x, y } = this.nextPosition(currentX, currentY)
 
     if (this.isObstacle(x, y)) {
       return
@@ -49,7 +48,7 @@ export class Move {
     this.rover.y = y
   }
 
-  private validate(x: number, y: number): { x: number, y: number } {
+  private nextPosition(x: number, y: number): { x: number, y: number } {
     if (y > this.rover.grid.y - 1) {
       y = 0;
     }
