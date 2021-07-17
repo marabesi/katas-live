@@ -8,14 +8,13 @@ export class Move {
     this.rover = rover
   }
 
-  isObstacle(roverX: number, roverY: number) {
+  isObstacle(roverX: number, roverY: number) : boolean {
     if (!this.rover.grid.obstacle) {
       return false
     }
 
     const { x, y } = this.rover.grid.obstacle
     if(this.rover.grid.obstacle && x === roverX && y === roverY) {
-      this.rover.hasObstacle = true
       return true
     }
     return false
@@ -41,6 +40,7 @@ export class Move {
     const { x, y } = this.nextPosition(currentX, currentY)
 
     if (this.isObstacle(x, y)) {
+      this.rover.hasObstacle = true
       return
     }
 
