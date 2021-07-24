@@ -6,11 +6,16 @@ namespace Kata;
 
 class MagicBook
 {
-    public array $enchantments = [
+    private array $enchantments = [
         [
             'Agility',
             'Quick',
             '+5 agility'
         ]
     ];
+
+    public function getRandomEnchantments(): array
+    {
+        return $this->enchantments[array_rand($this->enchantments)];
+    }
 }

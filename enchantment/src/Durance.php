@@ -16,7 +16,7 @@ class Durance
 
     public function enchant(): void
     {
-        $enchantment = $this->magicBook->enchantments[0];
+        $enchantment = $this->magicBook->getRandomEnchantments();
         $this->weapon->addEnchantment($enchantment);
     }
 
