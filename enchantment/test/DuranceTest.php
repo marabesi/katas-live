@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Kata\Test;
 
@@ -8,7 +8,7 @@ use Kata\Durance;
 use Kata\Weapon;
 use PHPUnit\Framework\TestCase;
 
-class EnchantmentTest extends TestCase
+class DuranceTest extends TestCase
 {
 
     public function test_weapon_name()
@@ -32,9 +32,19 @@ class EnchantmentTest extends TestCase
         $this->assertEquals(1.2, $values[0]);
     }
 
-    public function teste_weapon_attributes_as_string()
+    public function test_weapon_description_as_string()
     {
-        $durance = new Durance()
+        $describeWeapon = <<<EOT
+Quick Dagger of the Nooblet
+EOT;
+
+        $weapon = new Weapon('Quick Dagger of the Nooblet');
+        $durance = new Durance($weapon);
+
+        $durance->enchant();
+
+        $this->assertEquals($describeWeapon, $durance->describeWeapon());
+
     }
 
 }
