@@ -5,8 +5,7 @@ WORKDIR /var/www
 COPY . .
 
 RUN apt-get update && \
-    apt-get install nodejs npm git libzip-dev -y && \
-    npm install -g serverless && \
+    apt-get install git libzip-dev -y && \
     docker-php-ext-install -j$(nproc) zip && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
