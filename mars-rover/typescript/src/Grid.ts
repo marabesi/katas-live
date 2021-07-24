@@ -1,22 +1,23 @@
+import {Position} from "./Position";
+
 type Obstacle = { x: number; y: number }
 
 export class Grid {
-  private _x: number
-  private _y: number
+  private position: Position = new Position()
   private _obstacle?: Obstacle
 
   constructor(x: number, y: number, obstacle?: Obstacle) {
-    this._x = x
-    this._y = y
+    this.position.y = y
+    this.position.x = x
     this._obstacle = obstacle
   }
 
   get x(): number {
-    return this._x
+    return this.position.x
   }
 
   get y(): number {
-    return this._y
+    return this.position.y
   }
 
   get obstacle(): Obstacle {
