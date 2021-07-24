@@ -20,6 +20,12 @@ class Durance
     #[Pure]
     public function describeWeapon(): string
     {
-        return $this->weapon->name();
+        $string = '';
+
+        foreach ($this->weapon->attributes() as $attribute => $value) {
+            $string .= sprintf('%s%s %s', PHP_EOL, $value, $attribute);
+        }
+
+        return $this->weapon->name() . $string;
     }
 }
