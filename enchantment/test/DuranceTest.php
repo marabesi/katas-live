@@ -79,4 +79,22 @@ EOT;
         $this->assertEquals($describeWeapon, $durance->describeWeapon());
     }
 
+    public function test_weapon_with_one_attribute_and_should_have_fire_enchantment()
+    {
+        $describeWeapon = <<<EOT
+Inferno Dagger of the Nooblet
+5 - 10 attack damage
++5 fire damage
+EOT;
+
+        $weapon = new Weapon('Dagger of the Nooblet', [
+            'attack damage' => '5 - 10'
+        ]);
+        $durance = new Durance($weapon);
+
+        $durance->enchant();
+
+        $this->assertEquals($describeWeapon, $durance->describeWeapon());
+    }
+
 }
