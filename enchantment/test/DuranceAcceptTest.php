@@ -6,7 +6,7 @@ namespace Kata\Test;
 use Kata\Durance;
 use PHPUnit\Framework\TestCase;
 
-class EnchantmentAcceptTest extends TestCase
+class DuranceAcceptTest extends TestCase
 {
 
     public function test_can_enchant_weapon()

@@ -4,6 +4,7 @@
 namespace Kata\Test;
 
 
+use Kata\Durance;
 use Kata\Weapon;
 use PHPUnit\Framework\TestCase;
 
@@ -29,6 +30,11 @@ class EnchantmentTest extends TestCase
 
         $this->assertEquals('attack speed', $attributes[0]);
         $this->assertEquals(1.2, $values[0]);
+    }
+
+    public function teste_weapon_attributes_as_string()
+    {
+        $durance = new Durance()
     }
 
 }
