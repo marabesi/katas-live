@@ -11,6 +11,7 @@ class EnchantmentAcceptTest extends TestCase
 
     public function test_can_enchant_weapon()
     {
+        $this->markTestIncomplete('aceitação');
         $describeWeapon = <<<EOT
 Inferno Dagger of the Nooblet
 5 - 10 attack damage
