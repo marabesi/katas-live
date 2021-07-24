@@ -1,0 +1,20 @@
+{
+    "name": "kata/enchantment",
+    "authors": [
+        {
+            "name": "Matheus Marabesi",
+            "email": "matheus.marabesi@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kata\\": "src"
+        }
+    },
+    "scripts": {
+        "test": "phpunit test/"
+    }
+}
