@@ -13,15 +13,15 @@ class DuranceTest extends TestCase
 
     public function test_weapon_name()
     {
-        $weapon = new Weapon('Quick Dagger of the Nooblet');
+        $weapon = new Weapon('Dagger of the Nooblet');
 
-        $this->assertEquals('Quick Dagger of the Nooblet', $weapon->name());
+        $this->assertEquals('Dagger of the Nooblet', $weapon->name());
     }
 
 
     public function test_define_attack_speed_attribute()
     {
-        $weapon = new Weapon('Quick Dagger of the Nooblet', [
+        $weapon = new Weapon('Dagger of the Nooblet', [
             'attack speed' => 1.2,
         ]);
 
@@ -36,10 +36,10 @@ class DuranceTest extends TestCase
     public function test_weapon_description_as_string()
     {
         $describeWeapon = <<<EOT
-Quick Dagger of the Nooblet
+Dagger of the Nooblet
 EOT;
 
-        $weapon = new Weapon('Quick Dagger of the Nooblet');
+        $weapon = new Weapon('Dagger of the Nooblet');
         $durance = new Durance($weapon);
 
         $durance->enchant();
@@ -51,11 +51,11 @@ EOT;
     public function test_define_attack_damage()
     {
         $describeWeapon = <<<EOT
-Quick Dagger of the Nooblet
+Dagger of the Nooblet
 5 - 10 attack damage
 EOT;
 
-        $weapon = new Weapon('Quick Dagger of the Nooblet', [
+        $weapon = new Weapon('Dagger of the Nooblet', [
             'attack damage' => '5 - 10'
         ]);
         $durance = new Durance($weapon);
