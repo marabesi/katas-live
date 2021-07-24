@@ -16,4 +16,17 @@ class EnchantmentTest extends TestCase
 
         $this->assertEquals('Quick Dagger of the Nooblet', $weapon->description());
     }
+
+
+    public function test_define_attack_speed_attribute()
+    {
+        $weapon = new Weapon('Quick Dagger of the Nooblet', [
+            'attack speed' => 1.2,
+        ]);
+
+        $attributes = array_keys($weapon->attributes());
+
+        $this->assertEquals('attack speed', $attributes[0]);
+    }
+
 }
