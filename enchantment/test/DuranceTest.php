@@ -5,7 +5,9 @@ namespace Kata\Test;
 
 
 use Kata\Durance;
+use Kata\MagicBook;
 use Kata\Weapon;
+use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 
 class DuranceTest extends TestCase
