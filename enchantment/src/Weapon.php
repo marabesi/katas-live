@@ -7,14 +7,14 @@ class Weapon
 {
 
     public function __construct(
-        private string $description,
+        private string $name,
         private array $attributes = [],
     )
     { }
 
-    public function description(): string
+    public function name(): string
     {
-        return $this->description;
+        return $this->name;
     }
 
     public function attributes(): array
