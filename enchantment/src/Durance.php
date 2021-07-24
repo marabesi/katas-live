@@ -8,11 +8,10 @@ use JetBrains\PhpStorm\Pure;
 
 class Durance
 {
-    private MagicBook $magicBook;
-
-    public function __construct(private Weapon $weapon)
+    #[Pure]
+    public function __construct(private Weapon $weapon, private ?MagicBook $magicBook = null)
     {
-        $this->magicBook = new MagicBook();
+        $this->magicBook ??= new MagicBook();
     }
 
     public function enchant(): void
@@ -22,7 +21,6 @@ class Durance
     }
 
     #[Pure]
-
     public function describeWeapon(): string
     {
         $weaponName = $this->weapon->name();
