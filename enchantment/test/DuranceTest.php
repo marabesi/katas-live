@@ -56,7 +56,7 @@ Quick Dagger of the Nooblet
 EOT;
 
         $weapon = new Weapon('Quick Dagger of the Nooblet', [
-            "attack damage" => "5 - 10"
+            'attack damage' => '5 - 10'
         ]);
         $durance = new Durance($weapon);
 
