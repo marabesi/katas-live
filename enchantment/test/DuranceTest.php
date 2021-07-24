@@ -33,7 +33,7 @@ class DuranceTest extends TestCase
     }
 
 
-    public function test_weapon_description_as_string()
+    public function test_weapon_without_enchantment_description_as_string()
     {
         $describeWeapon = <<<EOT
 Dagger of the Nooblet
