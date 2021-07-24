@@ -25,8 +25,10 @@ class EnchantmentTest extends TestCase
         ]);
 
         $attributes = array_keys($weapon->attributes());
+        $values = array_values($weapon->attributes());
 
         $this->assertEquals('attack speed', $attributes[0]);
+        $this->assertEquals(1.2, $values[0]);
     }
 
 }
