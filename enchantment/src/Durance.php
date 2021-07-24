@@ -34,7 +34,8 @@ class Durance
         foreach ($this->weapon->enchantments() as $enchantment){
             [,$prefix, $attributes] = $enchantment;
             $string .= sprintf('%s%s', PHP_EOL, $attributes);
-            $weaponName = sprintf('%s %s', $prefix, $weaponName);
+
+            return sprintf('%s %s%s', $prefix, $weaponName, $string);
         }
         return $weaponName . $string;
     }
