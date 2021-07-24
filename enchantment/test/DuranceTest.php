@@ -83,7 +83,8 @@ EOT;
 
     public function test_weapon_with_one_attribute_and_should_have_fire_enchantment()
     {
-        $this->markTestSkipped();
+        $magicBook = new MagicBook();
+        $magicBook->enchantments = [['Fire', 'Inferno', '+5 fire damage']];
         $describeWeapon = <<<EOT
 Inferno Dagger of the Nooblet
 5 - 10 attack damage
@@ -93,8 +94,7 @@ EOT;
         $weapon = new Weapon('Dagger of the Nooblet', [
             'attack damage' => '5 - 10'
         ]);
-        $durance = new Durance($weapon);
-
+        $durance = new Durance($weapon, $magicBook);
         $durance->enchant();
         $this->assertEquals($describeWeapon, $durance->describeWeapon());
     }
