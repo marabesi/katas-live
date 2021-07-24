@@ -9,6 +9,7 @@ class Weapon
     public function __construct(
         private string $name,
         private array $attributes = [],
+        private array $enchantments = [],
     )
     { }
 
@@ -20,5 +21,15 @@ class Weapon
     public function attributes(): array
     {
         return $this->attributes;
+    }
+
+    public function addEnchantment(array $enchantment)
+    {
+        $this->enchantments[] = $enchantment;
+    }
+
+    public function enchantments() : array
+    {
+        return $this->enchantments;
     }
 }

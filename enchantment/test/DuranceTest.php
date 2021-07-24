@@ -42,8 +42,6 @@ EOT;
         $weapon = new Weapon('Dagger of the Nooblet');
         $durance = new Durance($weapon);
 
-        $durance->enchant();
-
         $this->assertEquals($describeWeapon, $durance->describeWeapon());
 
     }
@@ -59,8 +57,6 @@ EOT;
             'attack damage' => '5 - 10'
         ]);
         $durance = new Durance($weapon);
-
-        $durance->enchant();
 
         $this->assertEquals($describeWeapon, $durance->describeWeapon());
     }
