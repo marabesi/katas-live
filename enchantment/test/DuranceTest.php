@@ -3,11 +3,9 @@ declare(strict_types=1);
 
 namespace Kata\Test;
 
-
 use Kata\Durance;
 use Kata\MagicBook;
 use Kata\Weapon;
-use PHPUnit\Framework\MockObject\MockBuilder;
 use PHPUnit\Framework\TestCase;
 
 class DuranceTest extends TestCase
@@ -65,6 +63,14 @@ EOT;
 
     public function test_weapon_with_one_attribute_and_should_have_one_enchantment()
     {
+        $magicBook = $this->createMock(MagicBook::class);
+        $magicBook->method('getRandomEnchantments')->willReturn(
+            [
+                'Agility',
+                'Quick',
+                '+5 agility'
+            ],
+        );
         $describeWeapon = <<<EOT
 Quick Dagger of the Nooblet
 5 - 10 attack damage
@@ -74,7 +80,7 @@ EOT;
         $weapon = new Weapon('Dagger of the Nooblet', [
             'attack damage' => '5 - 10'
         ]);
-        $durance = new Durance($weapon);
+        $durance = new Durance($weapon, $magicBook);
 
         $durance->enchant();
 

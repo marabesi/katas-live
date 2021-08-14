@@ -11,7 +11,12 @@ class MagicBook
             'Agility',
             'Quick',
             '+5 agility'
-        ]
+        ],
+        [
+            'Fire',
+            'Inferno',
+            '+5 fire damage'
+        ],
     ];
 
     public function getRandomEnchantments(): array
