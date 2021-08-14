@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Kata\Test;
 
+use Kata\BuildWeapon;
 use Kata\Durance;
 use Kata\MagicBook;
 use Kata\Weapon;
@@ -42,10 +43,7 @@ Quick Dagger of the Nooblet
 1.2 attack speed
 +5 agility
 EOT;
-        $weapon = new Weapon('Dagger of the Nooblet', [
-            'attack damage' => '5 - 10',
-            'attack speed' => 1.2
-        ]);
+        $weapon = BuildWeapon::daggerOfTheNoobletWithAttributes();
         $durance = new Durance($weapon, $magicBook);
         $durance->enchant();
         $this->assertEquals($describeWeapon,$durance->describeWeapon());

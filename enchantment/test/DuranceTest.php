@@ -69,9 +69,7 @@ Quick Dagger of the Nooblet
 +5 agility
 EOT;
 
-        $weapon = new Weapon('Dagger of the Nooblet', [
-            'attack damage' => '5 - 10'
-        ]);
+        $weapon = BuildWeapon::daggerOfTheNoobletWithAttack();
         $durance = new Durance($weapon, $magicBook);
 
         $durance->enchant();
@@ -89,9 +87,7 @@ Inferno Dagger of the Nooblet
 +5 fire damage
 EOT;
 
-        $weapon = new Weapon('Dagger of the Nooblet', [
-            'attack damage' => '5 - 10'
-        ]);
+        $weapon = BuildWeapon::daggerOfTheNoobletWithAttack();
         $durance = new Durance($weapon, $magicBook);
         $durance->enchant();
         $this->assertEquals($describeWeapon, $durance->describeWeapon());
