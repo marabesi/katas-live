@@ -19,4 +19,11 @@ class BuildWeapon
             'attack speed' => 1.2,
         ]);
     }
+
+    public static function daggerOfTheNoobletWithAttack(): Weapon
+    {
+        return new Weapon('Dagger of the Nooblet', [
+            'attack damage' => '5 - 10',
+        ]);
+    }
 }

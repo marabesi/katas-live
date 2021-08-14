@@ -52,10 +52,7 @@ Dagger of the Nooblet
 5 - 10 attack damage
 EOT;
 
-//        $weapon = new Weapon('Dagger of the Nooblet', [
-//            'attack damage' => '5 - 10'
-//        ]);
-        $weapon = BuildWeapon::daggerOfTheNooblet();
+        $weapon = BuildWeapon::daggerOfTheNoobletWithAttack();
         $durance = new Durance($weapon);
 
         $this->assertEquals($describeWeapon, $durance->describeWeapon());
