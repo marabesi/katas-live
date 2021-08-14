@@ -24,11 +24,7 @@ class Durance
     public function describeWeapon(): string
     {
         $weaponName = $this->weapon->name();
-        $weaponAttributes = '';
-
-        foreach ($this->weapon->attributes() as $attribute => $value) {
-            $weaponAttributes .= sprintf('%s%s %s', PHP_EOL, $value, $attribute);
-        }
+        $weaponAttributes = $this->describeWeaponAttributes();
         foreach ($this->weapon->enchantments() as $enchantment){
             if (empty($enchantment)) {
                 return $weaponName . $weaponAttributes;
@@ -39,5 +35,15 @@ class Durance
             return sprintf('%s %s%s', $prefix, $weaponName, $weaponAttributes);
         }
         return $weaponName . $weaponAttributes;
+    }
+
+    private function describeWeaponAttributes(): string
+    {
+        $weaponAttributes = '';
+
+        foreach ($this->weapon->attributes() as $attribute => $value) {
+            $weaponAttributes .= sprintf('%s%s %s', PHP_EOL, $value, $attribute);
+        }
+        return $weaponAttributes;
     }
 }
