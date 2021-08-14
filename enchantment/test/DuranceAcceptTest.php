@@ -48,4 +48,21 @@ EOT;
         $durance->enchant();
         $this->assertEquals($describeWeapon,$durance->describeWeapon());
     }
+
+    public function test_weapon_without_enchantment()
+    {
+        $magicBook = $this->createMock(MagicBook::class);
+        $magicBook->method('getRandomEnchantments')->willReturn([]);
+
+        $describeWeapon = <<<EOT
+Dagger of the Nooblet
+5 - 10 attack damage
+1.2 attack speed
+EOT;
+
+        $weapon = BuildWeapon::daggerOfTheNoobletWithAttributes();
+        $durance = new Durance($weapon, $magicBook);
+        $durance->enchant();
+        $this->assertEquals($describeWeapon,$durance->describeWeapon());
+    }
 }
