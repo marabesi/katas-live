@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Kata\Test;
 
+use Kata\BuildWeapon;
 use Kata\Durance;
 use Kata\MagicBook;
 use Kata\Weapon;
@@ -13,7 +14,7 @@ class DuranceTest extends TestCase
 
     public function test_weapon_name()
     {
-        $weapon = new Weapon('Dagger of the Nooblet');
+        $weapon = BuildWeapon::daggerOfTheNooblet();
 
         $this->assertEquals('Dagger of the Nooblet', $weapon->name());
     }
@@ -21,9 +22,7 @@ class DuranceTest extends TestCase
 
     public function test_define_attack_speed_attribute()
     {
-        $weapon = new Weapon('Dagger of the Nooblet', [
-            'attack speed' => 1.2,
-        ]);
+        $weapon = BuildWeapon::daggerOfTheNoobletWithAttackSpeed();
 
         $attributes = array_keys($weapon->attributes());
         $values = array_values($weapon->attributes());
@@ -39,7 +38,7 @@ class DuranceTest extends TestCase
 Dagger of the Nooblet
 EOT;
 
-        $weapon = new Weapon('Dagger of the Nooblet');
+        $weapon = BuildWeapon::daggerOfTheNooblet();
         $durance = new Durance($weapon);
 
         $this->assertEquals($describeWeapon, $durance->describeWeapon());
