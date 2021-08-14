@@ -14,7 +14,7 @@ class DuranceAcceptTest extends TestCase
     public function test_can_enchant_fire_weapon()
     {
         $magicBook = $this->createMock(MagicBook::class);
-        $magicBook->method('getRandomEnchantments')->willReturn(['Fire', 'Inferno', '+5 fire damage']);
+        $magicBook->method('getRandomEnchantments')->willReturn(MagicBook::FIRE);
 
         $describeWeapon = <<<EOT
 Inferno Dagger of the Nooblet
@@ -34,13 +34,7 @@ EOT;
     public function test_can_enchant_agility_weapon()
     {
         $magicBook = $this->createMock(MagicBook::class);
-        $magicBook->method('getRandomEnchantments')->willReturn(
-            [
-                'Agility',
-                'Quick',
-                '+5 agility'
-            ],
-        );
+        $magicBook->method('getRandomEnchantments')->willReturn(MagicBook::AGILITY);
 
         $describeWeapon = <<<EOT
 Quick Dagger of the Nooblet

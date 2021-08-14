@@ -64,13 +64,8 @@ EOT;
     public function test_weapon_with_one_attribute_and_should_have_one_enchantment()
     {
         $magicBook = $this->createMock(MagicBook::class);
-        $magicBook->method('getRandomEnchantments')->willReturn(
-            [
-                'Agility',
-                'Quick',
-                '+5 agility'
-            ],
-        );
+        $magicBook->method('getRandomEnchantments')->willReturn(MagicBook::AGILITY);
+
         $describeWeapon = <<<EOT
 Quick Dagger of the Nooblet
 5 - 10 attack damage
@@ -90,7 +85,7 @@ EOT;
     public function test_weapon_with_one_attribute_and_should_have_fire_enchantment()
     {
         $magicBook = $this->createMock(MagicBook::class);
-        $magicBook->method('getRandomEnchantments')->willReturn(['Fire', 'Inferno', '+5 fire damage']);
+        $magicBook->method('getRandomEnchantments')->willReturn(MagicBook::FIRE);
         $describeWeapon = <<<EOT
 Inferno Dagger of the Nooblet
 5 - 10 attack damage

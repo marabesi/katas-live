@@ -6,17 +6,19 @@ namespace Kata;
 
 class MagicBook
 {
+    const AGILITY = [
+        'Agility',
+        'Quick',
+        '+5 agility'
+    ];
+    const FIRE = [
+        'Fire',
+        'Inferno',
+        '+5 fire damage'
+    ];
     private array $enchantments = [
-        [
-            'Agility',
-            'Quick',
-            '+5 agility'
-        ],
-        [
-            'Fire',
-            'Inferno',
-            '+5 fire damage'
-        ],
+        self::AGILITY,
+        self::FIRE,
     ];
 
     public function getRandomEnchantments(): array
