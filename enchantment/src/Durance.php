@@ -20,13 +20,12 @@ class Durance
         $this->weapon->addEnchantment($enchantment);
     }
 
-    #[Pure]
     public function describeWeapon(): string
     {
         $weaponName = $this->weapon->name();
         $weaponAttributes = $this->describeWeaponAttributes();
-        foreach ($this->weapon->enchantments() as $enchantment){
-            return $this->describeEnchant($enchantment, $weaponName, $weaponAttributes);
+        if ($this->weapon->enchantments()) {
+            return $this->describeEnchant($weaponName, $weaponAttributes);
         }
         return $weaponName . $weaponAttributes;
     }
@@ -41,20 +40,16 @@ class Durance
         return $weaponAttributes;
     }
 
-    /**
-     * @param mixed $enchantment
-     * @param string $weaponName
-     * @param string $weaponAttributes
-     * @return string
-     */
-    private function describeEnchant(mixed $enchantment, string $weaponName, string $weaponAttributes): string
+    private function describeEnchant(string $weaponName, string $weaponAttributes): string
     {
-        if (empty($enchantment)) {
-            return $weaponName . $weaponAttributes;
+        foreach ($this->weapon->enchantments() as $enchantment) {
+            if (empty($enchantment)) {
+                return $weaponName . $weaponAttributes;
+            }
+            [, $prefix, $attributes] = $enchantment;
+            $weaponAttributes .= sprintf('%s%s', PHP_EOL, $attributes);
+            return sprintf('%s %s%s', $prefix, $weaponName, $weaponAttributes);
         }
-        [, $prefix, $attributes] = $enchantment;
-        $weaponAttributes .= sprintf('%s%s', PHP_EOL, $attributes);
-
-        return sprintf('%s %s%s', $prefix, $weaponName, $weaponAttributes);
+        return '';
     }
 }
