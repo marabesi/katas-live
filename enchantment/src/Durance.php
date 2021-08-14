@@ -33,7 +33,6 @@ class Durance
     private function describeWeaponAttributes(): string
     {
         $weaponAttributes = '';
-
         foreach ($this->weapon->attributes() as $attribute => $value) {
             $weaponAttributes .= sprintf('%s%s %s', PHP_EOL, $value, $attribute);
         }
