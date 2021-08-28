@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class StringCalculatorTest extends TestCase
 {
-    public function stringsWithComma(): array
+    public function strings(): array
     {
         return [
             ["", 0],
@@ -19,9 +19,9 @@ class StringCalculatorTest extends TestCase
     }
 
     /**
-     * @dataProvider stringsWithComma
+     * @dataProvider strings
      */
-    public function test_should_sum_strings_with_comma($strings, $expected) {
+    public function test_should_sum_strings($strings, $expected) {
         $calculator = new StringCalculator();
         $result = $calculator->add($strings);
         $this->assertEquals($expected, $result);
