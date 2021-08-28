@@ -19,4 +19,10 @@ class StringCalculatorTest extends TestCase
         $result = $calculator->add("4");
         $this->assertEquals(4, $result);
     }
+
+    public function test_string_sum_number_one_and_two() {
+        $calculator = new StringCalculator();
+        $result = $calculator->add("1,2");
+        $this->assertEquals(3, $result);
+    }
 }
