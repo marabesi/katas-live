@@ -25,9 +25,7 @@ class StringCalculator
         $separator = ',';
         if (preg_match('/^\/\/(.*)\\n(.*)/', $numbers, $matches)) {
             [, $separator, $numbers] = $matches;
-            if (preg_match_all("/\[([^\]]*)\]/", $separator, $groups)) {
-                [,$separator] = $groups;
-            }
+            $separator = $this->searchForGroups($separator);
         }
 
         $numbers = str_replace(["\n"], $separator, $numbers);
@@ -51,5 +49,15 @@ class StringCalculator
         if (count($negatives)) {
             throw new NegativeAreNotAllowed();
         }
+    }
+
+    public function searchForGroups(string $separator): array|string
+    {
+        if (preg_match_all("/\[([^\]]*)\]/", $separator, $groups)) {
+            [, $separator] = $groups;
+            return $separator;
+        }
+
+       return $separator;
     }
 }
