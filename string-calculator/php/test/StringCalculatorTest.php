@@ -30,4 +30,13 @@ class StringCalculatorTest extends TestCase
         $result = $calculator->add($strings);
         $this->assertEquals($expected, $result);
     }
+
+    /**
+     * @throws NegativeAreNotAllowed
+     */
+    public function test_should_not_allow_negative_numbers() {
+        $this->markTestSkipped();
+        $calculator = new StringCalculator();
+        $calculator->add('1,-2,-3');
+    }
 }
