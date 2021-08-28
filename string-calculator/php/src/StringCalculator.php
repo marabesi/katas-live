@@ -14,9 +14,6 @@ class StringCalculator
     public function add(string $numbers) : int
     {
         $parsedNumbers = $this->parse($numbers);
-
-        $parsedNumbers = $this->filterValidNumbers($parsedNumbers);
-
         return (int) array_sum($parsedNumbers);
     }
 
@@ -38,7 +35,7 @@ class StringCalculator
 
         $this->checkNegatives($parsedNumbers);
 
-        return $parsedNumbers;
+        return $this->filterValidNumbers($parsedNumbers);
     }
 
     private function filterValidNumbers(array $numbers): array
