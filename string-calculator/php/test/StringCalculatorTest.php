@@ -23,6 +23,7 @@ class StringCalculatorTest extends TestCase
             ["1001,2", 2],
             ["//[***]\n1***2***3", 6],
             ["//[*][%]\n1*2%3", 6],
+            ["//[foo][bar]\n1foo2bar3", 6]
         ];
     }
 
