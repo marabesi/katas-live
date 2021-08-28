@@ -8,8 +8,13 @@ class StringCalculator
 {
     public function add(string $numbers) : int
     {
-        $numbers = str_replace(["\n"],',', $numbers);
-        $numbers = explode(',', $numbers);
+        $separator = ',';
+        if(str_starts_with($numbers, "//;")){
+            $separator = ';';
+            $numbers = "1;2";
+        }
+        $numbers = str_replace(["\n"], $separator, $numbers);
+        $numbers = explode($separator, $numbers);
         return (int) array_sum($numbers);
     }
 }
