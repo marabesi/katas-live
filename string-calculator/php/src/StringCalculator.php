@@ -8,9 +8,9 @@ class StringCalculator
 {
     public function add(string $numbers) : int
     {
-        if ($numbers == 4){
-            return $numbers;
+        if ($numbers == ''){
+            return 0;
         }
-        return 0;
+        return $numbers;
     }
 }
