@@ -25,4 +25,9 @@ class StringCalculatorTest extends TestCase
         $result = $calculator->add("1,2");
         $this->assertEquals(3, $result);
     }
+    public function test_string_sum_arbitray_number() {
+        $calculator = new StringCalculator();
+        $result = $calculator->add("1,2,3,4,5,6,7,8,9");
+        $this->assertEquals(45, $result);
+    }
 }
