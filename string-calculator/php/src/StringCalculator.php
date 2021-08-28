@@ -13,11 +13,7 @@ class StringCalculator
     {
         $parsedNumbers = $this->parse($numbers);
 
-        $negatives = array_filter($parsedNumbers, fn($number) => (int) $number < 0);
-
-        if (count($negatives)) {
-            throw new NegativeAreNotAllowed();
-        }
+        $this->checkNegatives($parsedNumbers);
 
         return (int) array_sum($parsedNumbers);
     }
@@ -32,5 +28,17 @@ class StringCalculator
         $numbers = str_replace(["\n"], $separator, $numbers);
 
         return explode($separator, $numbers);
+    }
+
+    /**
+     * @throws NegativeAreNotAllowed
+     */
+    private function checkNegatives(array $parsedNumbers): void
+    {
+        $negatives = array_filter($parsedNumbers, fn($number) => (int)$number < 0);
+
+        if (count($negatives)) {
+            throw new NegativeAreNotAllowed();
+        }
     }
 }
