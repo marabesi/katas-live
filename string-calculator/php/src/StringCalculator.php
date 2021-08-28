@@ -9,9 +9,9 @@ class StringCalculator
     public function add(string $numbers) : int
     {
         $separator = ',';
-        if(str_starts_with($numbers, "//;")){
+        if(str_starts_with($numbers, "//;\n")){
             $separator = ';';
-            $numbers = "1;2";
+            $numbers = str_replace("//;\n", '', $numbers);
         }
         $numbers = str_replace(["\n"], $separator, $numbers);
         $numbers = explode($separator, $numbers);
