@@ -20,6 +20,15 @@ class StringCalculator
     /**
      * @throws NegativeAreNotAllowed
      */
+    public function multiply(string $numbers) : int
+    {
+        $parsedNumbers = $this->parse($numbers);
+        return (int) array_product($parsedNumbers);
+    }
+
+    /**
+     * @throws NegativeAreNotAllowed
+     */
     public function parse(string $numbers): array
     {
         $separator = self::DEFAULT_SEPARATOR;

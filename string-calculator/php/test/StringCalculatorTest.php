@@ -41,4 +41,10 @@ class StringCalculatorTest extends TestCase
         $calculator = new StringCalculator();
         $calculator->add('1,-2,-3');
     }
+
+    public function test_should_multiply_strings() {
+        $calculator = new StringCalculator();
+        $result = $calculator->multiply('10,5');
+        $this->assertEquals(50, $result);
+    }
 }
