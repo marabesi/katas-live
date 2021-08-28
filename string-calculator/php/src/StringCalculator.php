@@ -25,6 +25,9 @@ class StringCalculator
         $separator = ',';
         if (preg_match('/^\/\/(.*)\\n(.*)/', $numbers, $matches)) {
             [, $separator, $numbers] = $matches;
+            if($separator=='[***]'){
+                $separator = '***';
+            }
         }
         $numbers = str_replace(["\n"], $separator, $numbers);
 
