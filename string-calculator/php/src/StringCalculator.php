@@ -15,6 +15,8 @@ class StringCalculator
 
         $this->checkNegatives($parsedNumbers);
 
+        $parsedNumbers = $this->filterValidNumbers($parsedNumbers);
+
         return (int) array_sum($parsedNumbers);
     }
 
@@ -24,10 +26,14 @@ class StringCalculator
         if (preg_match('/^\/\/(.*)\\n(.*)/', $numbers, $matches)) {
             [, $separator, $numbers] = $matches;
         }
-
         $numbers = str_replace(["\n"], $separator, $numbers);
 
         return explode($separator, $numbers);
+    }
+
+    private function filterValidNumbers(array $numbers): array
+    {
+        return array_filter($numbers, fn($number) => (int)$number < 1001);
     }
 
     /**
