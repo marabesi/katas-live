@@ -25,13 +25,15 @@ class StringCalculator
         $separator = ',';
         if (preg_match('/^\/\/(.*)\\n(.*)/', $numbers, $matches)) {
             [, $separator, $numbers] = $matches;
-            if($separator=='[***]'){
-                $separator = '***';
+            if (preg_match_all("/\[([^\]]*)\]/", $separator, $groups)) {
+                [,$separator] = $groups;
             }
         }
-        $numbers = str_replace(["\n"], $separator, $numbers);
 
-        return explode($separator, $numbers);
+        $numbers = str_replace(["\n"], $separator, $numbers);
+        $numbers = str_replace($separator, ',', $numbers);
+
+        return explode(',', $numbers);
     }
 
     private function filterValidNumbers(array $numbers): array
