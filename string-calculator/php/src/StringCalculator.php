@@ -6,10 +6,13 @@ namespace Kata;
 
 class StringCalculator
 {
+    /**
+     * @throws NegativeAreNotAllowed
+     */
     public function add(string $numbers) : int
     {
         $separator = ',';
-        if(preg_match('/^\/\/(.*)\\n(.*)/', $numbers, $matches)){
+        if (preg_match('/^\/\/(.*)\\n(.*)/', $numbers, $matches)) {
             [, $separator,$numbers] = $matches;
         }
 
