@@ -6,6 +6,8 @@ namespace Kata;
 
 class StringCalculator
 {
+    private const DEFAULT_SEPARATOR = ',';
+
     /**
      * @throws NegativeAreNotAllowed
      */
@@ -22,16 +24,16 @@ class StringCalculator
 
     public function parse(string $numbers): array
     {
-        $separator = ',';
+        $separator = self::DEFAULT_SEPARATOR;
         if (preg_match('/^\/\/(.*)\\n(.*)/', $numbers, $matches)) {
             [, $separator, $numbers] = $matches;
             $separator = $this->searchForGroups($separator);
         }
 
         $numbers = str_replace(["\n"], $separator, $numbers);
-        $numbers = str_replace($separator, ',', $numbers);
+        $numbers = str_replace($separator, self::DEFAULT_SEPARATOR, $numbers);
 
-        return explode(',', $numbers);
+        return explode(self::DEFAULT_SEPARATOR, $numbers);
     }
 
     private function filterValidNumbers(array $numbers): array
