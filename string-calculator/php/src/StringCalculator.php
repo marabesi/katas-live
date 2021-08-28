@@ -9,7 +9,7 @@ class StringCalculator
     public function add(string $numbers) : int
     {
         $separator = ',';
-        if(str_starts_with($numbers, "//;\n")){
+        if(preg_match("^//(\w){1}\n", $numbers, $matches)){
             $separator = ';';
             $numbers = str_replace("//;\n", '', $numbers);
         }
