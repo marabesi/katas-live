@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Kata\Test;
 
+use Kata\NegativeAreNotAllowed;
 use Kata\StringCalculator;
 use PHPUnit\Framework\TestCase;
 
@@ -31,11 +32,8 @@ class StringCalculatorTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
-    /**
-     * @throws NegativeAreNotAllowed
-     */
     public function test_should_not_allow_negative_numbers() {
-        $this->markTestSkipped();
+        $this->expectException(NegativeAreNotAllowed::class);
         $calculator = new StringCalculator();
         $calculator->add('1,-2,-3');
     }

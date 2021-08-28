@@ -17,6 +17,12 @@ class StringCalculator
 
         $numbers = explode($separator, $numbers);
 
+        $negatives = array_filter($numbers, fn($number) => (int) $number < 0);
+
+        if (count($negatives)) {
+            throw new NegativeAreNotAllowed();
+        }
+
         return (int) array_sum($numbers);
     }
 }
