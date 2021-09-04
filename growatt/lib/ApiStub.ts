@@ -1,4 +1,4 @@
-import { ApiInterface, ApiResponse } from './types'
+import { ApiInterface, ApiResponse, ErrorApiResponse } from './types'
 
 export class SuccessApiStub implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {
@@ -8,7 +8,7 @@ export class SuccessApiStub implements ApiInterface {
 
 export class ErrorApiStub implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {
-    return Promise.reject('Failed to fetch');
+    return Promise.reject(error);
   }
 }
 
@@ -19,4 +19,8 @@ const api: ApiResponse = {
       "co2": "1246.9",
     },
   }
+}
+
+const error: ErrorApiResponse = {
+ result: "-2, msg: '用户名或密码错误'"
 }

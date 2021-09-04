@@ -6,6 +6,10 @@ export interface ApiResponse {
   [key: string]: SolarPanel
 }
 
+export interface ErrorApiResponse {
+  result: string
+}
+
 interface SolarPanel {
   id: string
   plantData: PlantData
