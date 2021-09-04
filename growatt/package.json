@@ -18,7 +18,9 @@
       "test": "jest --colors",
       "start": "ts-node src/index.ts"
    },
-   "dependencies": {},
+   "dependencies": {
+      "growatt": "^0.2.2"
+   },
    "devDependencies": {
       "@babel/core": "^7.13.8",
       "@babel/preset-env": "^7.13.9",
