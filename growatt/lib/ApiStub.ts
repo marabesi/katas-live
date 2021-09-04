@@ -21,6 +21,6 @@ const api: ApiResponse = {
   }
 }
 
-const error: ErrorApiResponse = {
- result: "-2, msg: '用户名或密码错误'"
+export const error: ErrorApiResponse = {
+ result: "-2", msg: '用户名或密码错误'
 }

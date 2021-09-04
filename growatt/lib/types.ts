@@ -8,6 +8,7 @@ export interface ApiResponse {
 
 export interface ErrorApiResponse {
   result: string
+  msg: string
 }
 
 interface SolarPanel {
