@@ -1,4 +1,5 @@
-import { ApiInterface, ApiResponse, Co2Summary } from './Co2Summary'
+import { Co2Summary } from './Co2Summary'
+import { ApiInterface, ApiResponse } from './types'
 
 class ApiStub implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {

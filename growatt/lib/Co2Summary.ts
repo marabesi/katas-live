@@ -1,19 +1,4 @@
-export interface ApiInterface {
-   co2Information: () => Promise<ApiResponse>
-}
-
-export interface ApiResponse {
-  [key: string]: SolarPanel
-}
-
-interface SolarPanel {
-  id: string
-  plantData: PlantData
-}
-
-interface PlantData {
-  co2: string
-}
+import { ApiInterface } from './types'
 
 export class Co2Summary {
   constructor(private growatt: ApiInterface) { }
