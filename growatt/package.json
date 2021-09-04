@@ -16,7 +16,7 @@
       "dev": "npm run tsc",
       "tsc": "tsc --outDir build/",
       "test": "jest --colors",
-      "start": "ts-node src/index.ts"
+      "start": "ts-node lib/index.ts"
    },
    "dependencies": {
       "dotenv": "^10.0.0",
