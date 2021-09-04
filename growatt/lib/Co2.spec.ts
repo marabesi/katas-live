@@ -1,13 +1,14 @@
 import { ApiInterface, ApiResponse, Co2Summary } from './Co2Summary'
 
-class apiStub implements ApiInterface {
-  co2Information(): any {
+class ApiStub implements ApiInterface {
+  co2Information(): ApiResponse {
+    return api;
   }
 }
 
 describe('fetch co2', () => {
   test('should return co2 information from the api', () => {
-    const co2 = new Co2Summary(apiStub)
+    const co2 = new Co2Summary(new ApiStub())
     const burnedCo2 = co2.fetch()
 
     expect(burnedCo2).toEqual(1246.9)
