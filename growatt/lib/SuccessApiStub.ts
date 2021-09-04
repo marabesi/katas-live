@@ -1,6 +1,6 @@
 import { ApiInterface, ApiResponse } from './types'
 
-export class ApiStub implements ApiInterface {
+export class SuccessApiStub implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {
     return api;
   }
