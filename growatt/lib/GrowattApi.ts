@@ -12,25 +12,26 @@ const growatt = require('growatt')
 // let logout = await growatt.logout().catch(e => {console.log(e)})
 // console.log('logout:',logout)
 
-const responseGrowattApi: ApiResponse = {
-  "582073": {
-    "id": "582073",
-    "plantData": {
-      "co2": "1.2",
-    },
-  }
-}
-
 const user = process.env.GROWATT_USER || 'root'
 const password = process.env.GROWATT_PASS || 'charmander'
 
-const login = () => new growatt({ timeout: 20000 }).login(user, password)
+const api = new growatt({ timeout: 20000 })
+
+const login = () => api.login(user, password)
 
 export class GrowattApi implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {
 
     await login()
+    const plantData = await api.getAllPlantData()
 
-    return responseGrowattApi;
+    return {
+      "582073": {
+        "id": plantData['582073'].id,
+        "plantData": {
+          "co2": plantData['582073'].plantData.co2,
+        },
+      }
+    }
   }
 }
