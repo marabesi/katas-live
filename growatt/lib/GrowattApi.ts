@@ -2,7 +2,7 @@ require('dotenv').config()
 
 import { ApiInterface, ApiResponse } from './types'
 
-const api = require('growatt')
+const growatt = require('growatt')
 
 // const growatt = new api({})
 // let login = await growatt.login(user,passwort).catch(e => {console.log(e)})
@@ -24,11 +24,12 @@ const responseGrowattApi: ApiResponse = {
 const user = process.env.GROWATT_USER || 'root'
 const password = process.env.GROWATT_PASS || 'charmander'
 
+const login = () => new growatt({ timeout: 20000 }).login(user, password)
+
 export class GrowattApi implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {
 
-    const result = await api.login(user, password)
-    console.log(result)
+    await login()
 
     return responseGrowattApi;
   }

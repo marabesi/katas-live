@@ -5,7 +5,7 @@ const user = process.env.GROWATT_USER || 'root'
 const password = process.env.GROWATT_PASS || 'charmander'
 
 async function run() {
-  return api.login(user, password)
+  return new api({}).login(user, password)
 }
 
 run()

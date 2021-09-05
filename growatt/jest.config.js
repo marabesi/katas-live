@@ -1,5 +1,6 @@
 module.exports = {
-   'roots': [
+  'testEnvironment': 'node',
+  'roots': [
     '<rootDir>/'
   ],
   'testMatch': [
@@ -8,5 +9,5 @@ module.exports = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
-  timeout: 30000
+  testTimeout: 30000
 };
