@@ -1,0 +1,8 @@
+version: "3.5"
+
+services:
+  leap_year:
+    build:
+      context: ./
+    volumes:
+      - ./:/var/www
