@@ -5,4 +5,8 @@ namespace Kata;
 
 class LeapYear
 {
+    public function isLeapYear(int $int): bool
+    {
+        return false;
+    }
 }
