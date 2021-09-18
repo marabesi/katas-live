@@ -8,9 +8,19 @@ use PHPUnit\Framework\TestCase;
 
 class LeapYearTest extends TestCase
 {
-    public function test_can_not_divisible_by_four()
+    /**
+     * @dataProvider years
+     */
+    public function test_can_not_divisible_by_four($year, $isLeap)
     {
         $leap = new LeapYear();
-        $this->assertFalse($leap->isLeapYear(1997));
+        $this->assertEquals($isLeap, $leap->isLeapYear($year));
+    }
+
+    public function years(): array
+    {
+        return [
+            [1997, false]
+        ];
     }
 }
