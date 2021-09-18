@@ -20,7 +20,8 @@ class LeapYearTest extends TestCase
     public function years(): array
     {
         return [
-            [1997, false]
+            [1997, false],
+            [1996, true],
         ];
     }
 }
