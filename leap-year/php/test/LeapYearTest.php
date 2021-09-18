@@ -22,6 +22,7 @@ class LeapYearTest extends TestCase
         return [
             [1997, false],
             [1996, true],
+            [1600, true],
         ];
     }
 }
