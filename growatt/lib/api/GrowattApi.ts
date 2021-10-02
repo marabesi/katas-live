@@ -23,15 +23,16 @@ export class GrowattApi implements ApiInterface {
   async getData(): Promise<ApiResponse>{
     await login()
     const plantData = await api.getAllPlantData()
+    const plantId = '582073'
 
     return {
-      "582073": {
-        "id": plantData['582073'].id,
+      [plantId]: {
+        "id": plantData[plantId].id,
         "plantData": {
-          "co2": plantData['582073'].plantData.co2,
-          "coal": plantData['582073'].plantData.coal,
-          "eTotal": plantData['582073'].plantData.eTotal,
-          "tree": plantData['582073'].plantData.tree,
+          "co2": plantData[plantId].plantData.co2,
+          "coal": plantData[plantId].plantData.coal,
+          "eTotal": plantData[plantId].plantData.eTotal,
+          "tree": plantData[plantId].plantData.tree,
         },
       }
     }
