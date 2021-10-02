@@ -21,7 +21,6 @@ const login = () => api.login(user, password)
 
 export class GrowattApi implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {
-
     await login()
     const plantData = await api.getAllPlantData()
 
