@@ -10,6 +10,7 @@ Eu como usuário quero ter os seguintes dados do painel:
 - [ ] Total de árvores não cortadas
 - [ ] Energia gerada no dia
 - [ ] Potência atual gerada
+- [ ] Atualizar mensagem de error quando usuario e senha são inválidos
 
 ## Story 2
 
