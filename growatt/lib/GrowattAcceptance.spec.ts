@@ -12,4 +12,9 @@ describe('Fetch (from real api) the quantity of Co2 not burned', () => {
   const coalSummary = new GrowattService(new GrowattApi());
   expect(await coalSummary.coalSummary()).toEqual(any(Number))
  });
+
+ test('should give the total amount of energy generated', async () => {
+  const coalSummary = new GrowattService(new GrowattApi());
+  expect(await coalSummary.energySummary()).toEqual(any(Number))
+ });
 });

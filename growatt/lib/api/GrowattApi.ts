@@ -30,6 +30,7 @@ export class GrowattApi implements ApiInterface {
         "plantData": {
           "co2": plantData['582073'].plantData.co2,
           "coal": plantData['582073'].plantData.coal,
+          "eTotal": plantData['582073'].plantData.coal,
         },
       }
     }
