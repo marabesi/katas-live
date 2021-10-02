@@ -19,4 +19,10 @@ describe('fetch co2', () => {
         const coalSummary = await coal.coalSummary();
         expect(coalSummary).toEqual(666);
     });
+
+    test('should fetch total energy', () => {
+        const energy = new GrowattService(new SuccessApiStub());
+        const energySummary = energy.energySummary();
+        expect(energySummary).toEqual(6666);
+    })
 })
