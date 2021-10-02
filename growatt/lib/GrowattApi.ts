@@ -20,22 +20,7 @@ const api = new growatt({ timeout: 20000 })
 const login = () => api.login(user, password)
 
 export class GrowattApi implements ApiInterface {
-  async co2Information(): Promise<ApiResponse> {
-    await login()
-    const plantData = await api.getAllPlantData()
-
-    return {
-      "582073": {
-        "id": plantData['582073'].id,
-        "plantData": {
-          "co2": plantData['582073'].plantData.co2,
-          "coal": plantData['582073'].plantData.coal,
-        },
-      }
-    }
-  }
-
-  async coalInformation(): Promise<ApiResponse>{
+  async getData(): Promise<ApiResponse>{
     await login()
     const plantData = await api.getAllPlantData()
 

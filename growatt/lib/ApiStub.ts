@@ -1,16 +1,13 @@
 import { ApiInterface, ApiResponse, ErrorApiResponse } from './types'
 
 export class SuccessApiStub implements ApiInterface {
-  async co2Information(): Promise<ApiResponse> {
-    return api;
-  }
-  async coalInformation(): Promise<ApiResponse> {
+  async getData() : Promise<ApiResponse> {
     return api;
   }
 }
 
 export class ErrorApiStub implements ApiInterface {
-  async co2Information(): Promise<ApiResponse> {
+  async getData(): Promise<ApiResponse> {
     return Promise.reject(error);
   }
 }

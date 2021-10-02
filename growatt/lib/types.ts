@@ -1,5 +1,5 @@
 export interface ApiInterface {
-  co2Information: () => Promise<ApiResponse>
+  getData: () => Promise<ApiResponse>
 }
 
 export interface ApiResponse {
