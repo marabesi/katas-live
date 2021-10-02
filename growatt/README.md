@@ -4,12 +4,12 @@
 
 Eu como usuário quero ter os seguintes dados do painel:
 
-1. Quantidade de co2 não emitida
-2. Quantidade de carvão não queimado
-3. Total de energia gerada
-4. Total de árvores não cortadas
-5. Energia gerada no dia
-6. Potência atual gerada
+- [X] Quantidade de co2 não emitida
+- [ ] Quantidade de carvão não queimado
+- [ ] Total de energia gerada
+- [ ] Total de árvores não cortadas
+- [ ] Energia gerada no dia
+- [ ] Potência atual gerada
 
 ## Story 2
 
