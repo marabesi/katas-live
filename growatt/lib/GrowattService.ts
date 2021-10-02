@@ -13,7 +13,8 @@ export class GrowattService {
         return parseFloat(response['582073'].plantData.co2);
     }
 
-    energySummary() {
-
+    async energySummary(): Promise<Number> {
+        const response = await this.growattApi.getData();
+        return parseFloat(response['582073'].plantData.eTotal)
     }
 }

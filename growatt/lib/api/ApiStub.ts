@@ -17,7 +17,8 @@ const api: ApiResponse = {
     "id": "582073",
     "plantData": {
       "co2": "1246.9",
-      "coal": "666"
+      "coal": "666",
+      "eTotal": "6666",
     },
   }
 }

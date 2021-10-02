@@ -20,9 +20,9 @@ describe('fetch co2', () => {
         expect(coalSummary).toEqual(666);
     });
 
-    test('should fetch total energy', () => {
+    test('should fetch total energy', async () => {
         const energy = new GrowattService(new SuccessApiStub());
-        const energySummary = energy.energySummary();
+        const energySummary = await energy.energySummary();
         expect(energySummary).toEqual(6666);
     })
 })
