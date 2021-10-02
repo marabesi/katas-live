@@ -4,6 +4,9 @@ export class SuccessApiStub implements ApiInterface {
   async co2Information(): Promise<ApiResponse> {
     return api;
   }
+  async coalInformation(): Promise<ApiResponse> {
+    return api;
+  }
 }
 
 export class ErrorApiStub implements ApiInterface {
@@ -17,6 +20,7 @@ const api: ApiResponse = {
     "id": "582073",
     "plantData": {
       "co2": "1246.9",
+      "coal": "666"
     },
   }
 }

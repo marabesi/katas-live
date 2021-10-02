@@ -17,5 +17,6 @@ interface SolarPanel {
 }
 
 interface PlantData {
-  co2: string
+  co2: string,
+  coal: string
 }
