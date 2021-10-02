@@ -1,4 +1,4 @@
-import {GrowattApi} from './GrowattApi'
+import {GrowattApi} from './api/GrowattApi'
 import {GrowattService} from "./GrowattService";
 import any = jasmine.any;
 

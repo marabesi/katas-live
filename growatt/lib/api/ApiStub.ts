@@ -1,4 +1,4 @@
-import { ApiInterface, ApiResponse, ErrorApiResponse } from './types'
+import { ApiInterface, ApiResponse, ErrorApiResponse } from '../types'
 
 export class SuccessApiStub implements ApiInterface {
   async getData() : Promise<ApiResponse> {

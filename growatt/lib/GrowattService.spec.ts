@@ -1,4 +1,4 @@
-import {error, ErrorApiStub, SuccessApiStub} from './ApiStub'
+import {error, ErrorApiStub, SuccessApiStub} from './api/ApiStub'
 import {GrowattService} from "./GrowattService";
 
 describe('fetch co2', () => {

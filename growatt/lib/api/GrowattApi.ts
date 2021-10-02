@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-import { ApiInterface, ApiResponse } from './types'
+import { ApiInterface, ApiResponse } from '../types'
 
 const growatt = require('growatt')
 
