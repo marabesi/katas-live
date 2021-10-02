@@ -19,4 +19,9 @@ export class GrowattService {
         const response = await this.growattApi.getData();
         return parseFloat(response[this.plantId].plantData.eTotal)
     }
+
+    async savedTrees() {
+        const response = await this.growattApi.getData();
+        return parseFloat(response[this.plantId].plantData.tree)
+    }
 }

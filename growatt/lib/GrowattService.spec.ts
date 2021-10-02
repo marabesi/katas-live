@@ -28,4 +28,9 @@ describe('fetch Growatt apiData', () => {
         const energySummary = await growattServiceSuccess.energySummary();
         expect(energySummary).toEqual(6668);
     })
+
+    test('should fetch total of saved trees', async () => {
+        const energySummary = await growattServiceSuccess.savedTrees();
+        expect(energySummary).toEqual(10);
+    })
 })

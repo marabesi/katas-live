@@ -19,6 +19,7 @@ const api: ApiResponse = {
       "co2": "1246.9",
       "coal": "666",
       "eTotal": "6668",
+      "tree": "10",
     },
   }
 }
