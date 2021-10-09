@@ -11,6 +11,7 @@ Eu como usuário quero ter os seguintes dados do painel:
 - [X] Energia gerada no dia
 - [X] Potência atual gerada
 - [ ] Atualizar mensagem de error quando usuário e senha são inválidos
+- [ ] Realizar testes caso não tenha usuário e senha no env
 
 ## Story 2
 
