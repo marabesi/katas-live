@@ -11,9 +11,22 @@ export interface ErrorApiResponse {
   msg: string
 }
 
+interface HistoryLast {
+  pac: Number
+}
+
+interface Device {
+  historyLast: HistoryLast
+}
+
+interface Devices {
+  [key: string]: Device
+}
+
 interface SolarPanel {
   id: string
   plantData: PlantData
+  devices: Devices
 }
 
 interface PlantData {
