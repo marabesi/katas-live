@@ -30,11 +30,12 @@ export class GrowattService {
         return this.getValueFor('eToday', response);
     }
 
-    private getValueFor(key: string, response: ApiResponse): number {
-        return parseFloat(response[this.plantId].plantData[key]);
+    async generatedPower() {
+        const response: ApiResponse = await this.growattApi.getData();
+        return response[this.plantId].devices['YIDBA470E3'].historyLast.pac;
     }
 
-    async generatedPower() {
-        return null;
+    private getValueFor(key: string, response: ApiResponse): number {
+        return parseFloat(response[this.plantId].plantData[key]);
     }
 }
