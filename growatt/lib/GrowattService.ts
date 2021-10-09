@@ -17,7 +17,7 @@ export class GrowattService {
 
     async energySummary(): Promise<Number> {
         const response = await this.growattApi.getData();
-        return parseFloat(response[this.plantId].plantData.eTotal)
+        return this.getValueFor('eTotal', response);
     }
 
     async savedTrees() {
@@ -26,6 +26,6 @@ export class GrowattService {
     }
 
     private getValueFor(key: string, response: ApiResponse): number {
-        return parseFloat(response[this.plantId].plantData[key])
+        return parseFloat(response[this.plantId].plantData[key]);
     }
 }
