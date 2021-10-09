@@ -40,7 +40,7 @@ describe('fetch Growatt apiData', () => {
     })
 
     test('should fetch amount generated power', async () => {
-        const generatedEnergy = await growattServiceSuccess.generatedEnergyToday();
+        const generatedEnergy = await growattServiceSuccess.generatedPower();
         expect(generatedEnergy).toEqual(50);
     })
 })
