@@ -1,4 +1,4 @@
-import {ApiInterface} from './types';
+import { ApiInterface, ApiResponse } from './types';
 
 export class GrowattService {
     constructor(private growattApi: ApiInterface) { }
@@ -21,7 +21,11 @@ export class GrowattService {
     }
 
     async savedTrees() {
-        const response = await this.growattApi.getData();
-        return parseFloat(response[this.plantId].plantData.tree)
+        const response: ApiResponse = await this.growattApi.getData();
+        return this.getValueFor('tree', response);
+    }
+
+    private getValueFor(key: string, response: ApiResponse): number {
+        return parseFloat(response[this.plantId].plantData[key])
     }
 }
