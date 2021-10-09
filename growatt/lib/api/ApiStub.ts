@@ -22,6 +22,13 @@ const api: ApiResponse = {
       "tree": "10",
       "eToday": "12",
     },
+    "devices": {
+      "YIDBA470E3" : {
+        "historyLast": {
+          "pac": 50
+        }
+      }
+    }
   }
 }
 

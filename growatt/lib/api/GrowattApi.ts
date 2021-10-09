@@ -32,8 +32,16 @@ export class GrowattApi implements ApiInterface {
           "co2": plantData[plantId].plantData.co2,
           "coal": plantData[plantId].plantData.coal,
           "eTotal": plantData[plantId].plantData.eTotal,
+          "eToday": plantData[plantId].plantData.eToday,
           "tree": plantData[plantId].plantData.tree,
         },
+        "devices" : {
+          "YIDBA470E3" : {
+            "historyLast" : {
+              "pac": plantData[plantId].devices["YIDBA470E3"].historyLast.pac
+            }
+          }
+        }
       }
     }
   }
