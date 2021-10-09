@@ -28,4 +28,8 @@ export class GrowattService {
     private getValueFor(key: string, response: ApiResponse): number {
         return parseFloat(response[this.plantId].plantData[key]);
     }
+
+    async generatedEnergyToday(): Promise<number> {
+        return null;
+    }
 }

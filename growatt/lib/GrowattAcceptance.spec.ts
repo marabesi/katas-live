@@ -20,4 +20,8 @@ describe('Fetch (from real api) the quantity of Co2 not burned', () => {
  test('should give the total of saved trees', async () => {
   expect(await growattService.savedTrees()).toEqual(any(Number))
  });
+
+ test('should give the amount of generated energy for today', async () => {
+  expect(await growattService.generatedEnergyToday()).toEqual(any(Number))
+ });
 });
