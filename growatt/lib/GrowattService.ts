@@ -34,4 +34,7 @@ export class GrowattService {
         return parseFloat(response[this.plantId].plantData[key]);
     }
 
+    async generatedPower() {
+        return null;
+    }
 }
