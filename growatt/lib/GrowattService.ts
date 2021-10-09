@@ -7,12 +7,12 @@ export class GrowattService {
 
     async coalSummary() {
         const response = await this.growattApi.getData();
-        return parseFloat(response[this.plantId].plantData.coal);
+        return this.getValueFor('coal', response);
     }
 
     async co2Summary(): Promise<Number> {
         const response = await this.growattApi.getData();
-        return parseFloat(response[this.plantId].plantData.co2);
+        return this.getValueFor('co2', response);
     }
 
     async energySummary(): Promise<Number> {
