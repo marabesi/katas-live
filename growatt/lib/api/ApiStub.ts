@@ -20,6 +20,7 @@ const api: ApiResponse = {
       "coal": "666",
       "eTotal": "6668",
       "tree": "10",
+      "eToday": "12",
     },
   }
 }

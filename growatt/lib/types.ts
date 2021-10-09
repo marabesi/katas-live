@@ -21,4 +21,5 @@ interface PlantData {
   coal: string
   eTotal: string
   tree: string
+  eToday: string
 }

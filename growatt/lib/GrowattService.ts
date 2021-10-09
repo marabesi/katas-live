@@ -25,11 +25,13 @@ export class GrowattService {
         return this.getValueFor('tree', response);
     }
 
+    async generatedEnergyToday(): Promise<number> {
+        const response: ApiResponse = await this.growattApi.getData();
+        return this.getValueFor('eToday', response);
+    }
+
     private getValueFor(key: string, response: ApiResponse): number {
         return parseFloat(response[this.plantId].plantData[key]);
     }
 
-    async generatedEnergyToday(): Promise<number> {
-        return null;
-    }
 }

@@ -8,7 +8,7 @@ Eu como usuário quero ter os seguintes dados do painel:
 - [X] Quantidade de carvão não queimado
 - [X] Total de energia gerada
 - [X] Total de árvores não cortadas
-- [ ] Energia gerada no dia
+- [X] Energia gerada no dia
 - [ ] Potência atual gerada
 - [ ] Atualizar mensagem de error quando usuario e senha são inválidos
 
