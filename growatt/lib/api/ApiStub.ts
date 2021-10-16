@@ -12,6 +12,13 @@ export class ErrorApiStub implements ApiInterface {
   }
 }
 
+export class ErrorCredentialsStub implements ApiInterface {
+  getData(): Promise<ApiResponse> {
+    throw new Error(error.result)
+  }
+
+}
+
 const api: ApiResponse = {
   "582073": {
     "id": "582073",

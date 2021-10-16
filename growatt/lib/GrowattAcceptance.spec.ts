@@ -8,8 +8,9 @@ describe('Fetch (from real api) the quantity of Co2 not burned', () => {
 
  const growattService = new GrowattService(new GrowattApi(user, password));
 
- test.skip('invalid user and password', async () => {
-  expect(await growattService.co2Summary()).toThrow('Username Password Error')
+ test('invalid user and password', async () => {
+  let growattServiceFail = new GrowattService(new GrowattApi('fail', 'fail'));
+  expect(await growattServiceFail.co2Summary()).toThrow('Username Password Error')
  });
 
  test('should give the co2 not used as a kg number', async () => {

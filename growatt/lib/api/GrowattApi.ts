@@ -13,7 +13,11 @@ export class GrowattApi implements ApiInterface {
   }
 
   async getData(): Promise<ApiResponse>{
-    await this.growattLogin()
+    const loginResult = await this.growattLogin()
+
+    if (loginResult.result === "-2") {
+      throw new Error('Username Password Error')
+    }
     const plantData = await api.getAllPlantData()
     const plantId = '582073'
 

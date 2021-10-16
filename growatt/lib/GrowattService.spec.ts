@@ -1,13 +1,15 @@
-import {error, ErrorApiStub, SuccessApiStub} from './api/ApiStub'
+import {error, ErrorApiStub, ErrorCredentialsStub, SuccessApiStub} from './api/ApiStub'
 import {GrowattService} from "./GrowattService";
 
 describe('fetch Growatt apiData', () => {
     let growattServiceSuccess: GrowattService
     let growattServiceError: GrowattService
+    let growattServiceCredentialsError: GrowattService
 
     beforeEach(() => {
         growattServiceSuccess = new GrowattService(new SuccessApiStub())
         growattServiceError = new GrowattService(new ErrorApiStub())
+        growattServiceCredentialsError = new GrowattService(new ErrorCredentialsStub())
     })
 
     test('should return co2 information from the api', async () => {
@@ -19,10 +21,14 @@ describe('fetch Growatt apiData', () => {
         await expect(growattServiceError.co2Summary()).rejects.toEqual(error)
     })
 
+    test('Username Password Error', async () => {
+        expect(await growattServiceCredentialsError.co2Summary()).toThrow('Username Password Error')
+    })
+
     test('should fetch coal from growatt', async() => {
         const coalSummary = await growattServiceSuccess.coalSummary();
         expect(coalSummary).toEqual(666);
-    });
+    })
 
     test('should fetch total energy', async () => {
         const energySummary = await growattServiceSuccess.energySummary();
