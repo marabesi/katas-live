@@ -4,17 +4,16 @@ import { ApiInterface, ApiResponse } from '../types'
 
 const growatt = require('growatt')
 
-
-const user = process.env.GROWATT_USER || 'root'
-const password = process.env.GROWATT_PASS || 'charmander'
-
 const api = new growatt({ timeout: 20000 })
 
-const login = () => api.login(user, password)
-
 export class GrowattApi implements ApiInterface {
+  private readonly growattLogin: () => any;
+  constructor(user: string, password: string) {
+    this.growattLogin = () => api.login(user, password)
+  }
+
   async getData(): Promise<ApiResponse>{
-    await login()
+    await this.growattLogin()
     const plantData = await api.getAllPlantData()
     const plantId = '582073'
 
