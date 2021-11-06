@@ -49,7 +49,10 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "test": "phpunit tests/"
+        "test": "phpunit tests/",
+        "server": [
+            "@php rpc_server.php"
+        ]
     },
     "conflict": {
         "symfony/symfony": "*"
