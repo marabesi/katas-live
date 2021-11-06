@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 
+use App\Service\FibonacciRpcClient;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 use PHPUnit\Framework\TestCase;
@@ -16,7 +17,13 @@ class CommunicationTest extends TestCase
 
         $msg = new AMQPMessage('Hello World!');
         $channel->basic_publish($msg, '', 'hello');
-        
+
         $this->assertTrue(true);
+    }
+
+    public function test_send_rpc_call_to_the_queue() {
+        $fibonacci_rpc = new FibonacciRpcClient();
+        $response = $fibonacci_rpc->call(30);
+        $this->assertEquals('[.] Got 30','[.] Got ' . $response . "\n");
     }
 }
