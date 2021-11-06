@@ -9,7 +9,6 @@ services:
       - 5672:5672
       - 15672:15672
   rabbitmq-api:
-    build:
-      context: ./
+    image: aronpc/cati-php:8.0-fpm
     volumes:
-      - ./api:/var/www
+      - ./api:/app
