@@ -1,7 +1,10 @@
 version: "3.5"
 
 services:
-  string:
+  rabbitmq:
+    # http://<ip>:15672/ guest:guest ui password
+    image: rabbitmq:3.8-management
+  rabbitmq-api:
     build:
       context: ./
     volumes:
