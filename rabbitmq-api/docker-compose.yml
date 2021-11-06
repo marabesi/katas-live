@@ -3,9 +3,13 @@ version: "3.5"
 services:
   rabbitmq:
     # http://<ip>:15672/ guest:guest ui password
-    image: rabbitmq:3.8-management
+    image: rabbitmq:3.9-management
+    ports:
+      - 5671:5671
+      - 5672:5672
+      - 15672:15672
   rabbitmq-api:
     build:
       context: ./
     volumes:
-      - ./:/var/www
+      - ./api:/var/www
