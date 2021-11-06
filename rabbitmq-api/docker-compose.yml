@@ -10,5 +10,6 @@ services:
       - 15672:15672
   rabbitmq-api:
     image: aronpc/cati-php:8.0-fpm
+    working_dir: /app
     volumes:
       - ./api:/app
