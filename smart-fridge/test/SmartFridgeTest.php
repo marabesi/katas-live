@@ -10,26 +10,26 @@ use PHPUnit\Framework\TestCase;
 class SmartFridgeTest extends TestCase
 {
 
-//    public function test_friedge_starts_empty()
-//    {
-//        $fridge = new SmartFridge();
-//        $this->assertCount(0, $fridge->getItems());
-//    }
+    public function test_fridge_starts_empty()
+    {
+        $fridge = new SmartFridge();
+        $this->assertCount(0, $fridge->getItems());
+    }
     
     public function test_should_add_item_into_fridge()
     {
         $fridge = new SmartFridge();
-        $result = $fridge->addItem(new Item('Feijoada'));
-        $this->assertCount(1,$result);
+        $fridge->addItem(new Item('Feijoada'));
+        $this->assertCount(1, $fridge->getItems());
     }
 
     public function test_should_add_2_items_into_fridge()
     {
         $fridge = new SmartFridge();
         $fridge->addItem(new Item('Feijoada'));
-        $result = $fridge->addItem(new Item('Coxinha'));
+        $fridge->addItem(new Item('Coxinha'));
 
-        $this->assertCount(2,$result);
+        $this->assertCount(2, $fridge->getItems());
     }
 
 }
