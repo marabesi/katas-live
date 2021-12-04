@@ -10,6 +10,12 @@ use PHPUnit\Framework\TestCase;
 class SmartFridgeTest extends TestCase
 {
 
+//    public function test_friedge_starts_empty()
+//    {
+//        $fridge = new SmartFridge();
+//        $this->assertCount(0, $fridge->getItems());
+//    }
+    
     public function test_should_add_item_into_fridge()
     {
         $fridge = new SmartFridge();
