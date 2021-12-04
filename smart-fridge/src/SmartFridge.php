@@ -4,8 +4,12 @@ namespace Kata;
 
 class SmartFridge
 {
+    private array $items;
+
     public function addItem(Item $item)
     {
-        return [$item];
+        $this->items[] = $item;
+
+        return $this->items;
     }
 }
