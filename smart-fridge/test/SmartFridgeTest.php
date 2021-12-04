@@ -17,4 +17,12 @@ class SmartFridgeTest extends TestCase
         $this->assertCount(1,$result);
     }
 
+    public function test_should_add_2_items_into_fridge()
+    {
+        $fridge = new SmartFridge();
+        $result = $fridge->addItem(new Item('Feijoada'));
+        $result = $fridge->addItem(new Item('Coxinha'));
+        $this->assertCount(2,$result);
+    }
+
 }
