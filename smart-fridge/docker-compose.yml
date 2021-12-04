@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  php:
+    image: aronpc/cati-php:8.0-fpm
+    working_dir: /app
+    command: "composer test"
+    volumes:
+      - ./:/app
