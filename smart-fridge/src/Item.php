@@ -2,13 +2,15 @@
 
 namespace Kata;
 
+use DateTime;
+
 class Item
 {
+    public function __construct(private string $string, private DateTime $expiration)
+    { }
 
-    /**
-     * @param string $string
-     */
-    public function __construct(string $string)
+    public function expiration(): DateTime
     {
+        return $this->expiration;
     }
 }
