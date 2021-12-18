@@ -30,8 +30,8 @@ class SmartFridge
     public function showDisplay(): string
     {
         $item = $this->items[0];
-        $currentDate = DateTime::createFromFormat('d/m/Y',$this->currentDate);
-        $date = DateTime::createFromFormat('d/m/Y', $item->getExpires());
+        $currentDate = DateTime::createFromFormat('d/m/yy',$this->currentDate);
+        $date = DateTime::createFromFormat('d/m/yy', $item->getExpires());
         $dateDiff = $currentDate->diff($date);
         return sprintf('%s: %s day remaining', $item->getName(), $dateDiff->days);
     }

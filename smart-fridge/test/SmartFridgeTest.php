@@ -13,7 +13,7 @@ class SmartFridgeTest extends TestCase
     {
         $fridge = new SmartFridge();
         $fridge->setCurrentDate("18/10/2021");
-        $fridge->scanAddedItem(new Item("Peppers", "20/10/2021", "sealed"));
+        $fridge->scanAddedItem(new Item("Peppers", "20/10/21", "sealed"));
         $this->assertEquals("Peppers: 2 day remaining", $fridge->showDisplay());
     }
 
@@ -21,7 +21,7 @@ class SmartFridgeTest extends TestCase
     {
         $fridge = new SmartFridge();
         $fridge->setCurrentDate("19/10/2021");
-        $fridge->scanAddedItem(new Item("Peppers", "20/10/2021", "sealed"));
+        $fridge->scanAddedItem(new Item("Peppers", "20/10/21", "sealed"));
         $this->assertEquals("Peppers: 1 day remaining", $fridge->showDisplay());
     }
 }
