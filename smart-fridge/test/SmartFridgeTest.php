@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class SmartFridgeTest extends TestCase
 {
-    public function test_should_show_item_expire_on_date()
+    public function test_should_show_two_days_expiring_for_peppers()
     {
         $fridge = new SmartFridge();
         $fridge->setCurrentDate("18/10/2021");
@@ -17,7 +17,7 @@ class SmartFridgeTest extends TestCase
         $this->assertEquals("Peppers: 2 day remaining", $fridge->showDisplay());
     }
 
-    public function test_should_display_item_expired()
+    public function test_should_show_one_day_expiring_for_peppers()
     {
         $fridge = new SmartFridge();
         $fridge->setCurrentDate("19/10/2021");
