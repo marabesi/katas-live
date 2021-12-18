@@ -29,13 +29,24 @@ class SmartFridge
 
     public function showDisplay(): string
     {
-        $item = $this->items[0];
+        $output = '';
 
-        $currentDate = DateTime::createFromFormat('d/m/Y',$this->currentDate);
-        $date = DateTime::createFromFormat('d/m/y', $item->getExpires());
-        $dateDiff = $currentDate->diff($date);
+        foreach ($this->items as $key => $item) {
+            $currentDate = DateTime::createFromFormat('d/m/Y',$this->currentDate);
+            $date = DateTime::createFromFormat('d/m/y', $item->getExpires());
+            $dateDiff = $currentDate->diff($date);
 
-        return sprintf('%s: %s day remaining', $item->getName(), $dateDiff->days);
+            $isLastItem = $key === array_key_last($this->items);
+
+            $breakLine =  $isLastItem ? '' : "\n";
+
+            $remainingInDays = $dateDiff->days;
+            $remaining = $remainingInDays > 1 ? 'days' : 'day';
+
+            $output .= sprintf('%s: %s %s remaining%s', $item->getName(), $remainingInDays, $remaining, $breakLine);
+        }
+
+        return $output;
     }
 
 }
